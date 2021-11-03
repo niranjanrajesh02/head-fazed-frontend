@@ -22,10 +22,16 @@ const Dropdown = ({ menuName }) => {
     { title: "Over-ear", link: "/brands" },
     { title: "In-ear", link: "/brands" },
   ]
+  const accessoryNames = [
+    { title: "Cables", link: "/brands" },
+    { title: "Cases", link: "/brands" },
+    { title: "AMPs", link: "/brands" },
+    { title: "Speakers", link: "/brands" },
+  ]
 
   return (
     <>
-      <div className={`${styles.dropdownMenu} ${menuName === "use" ? styles.dropdownMenuUse : null} ${menuName === "type" ? styles.dropdownMenuType : null}`} >
+      <div className={`${styles.dropdownMenu}`} >
         {menuName === "brands" && brandNames.map((item, index) => {
           return (
             <div className={styles.dropdownItem} key={index}>
@@ -41,6 +47,13 @@ const Dropdown = ({ menuName }) => {
           )
         })}
         {menuName === "type" && typeNames.map((item, index) => {
+          return (
+            <div className={styles.dropdownItem} key={index}>
+              <p>{item.title}</p>
+            </div>
+          )
+        })}
+        {menuName === "accessory" && accessoryNames.map((item, index) => {
           return (
             <div className={styles.dropdownItem} key={index}>
               <p>{item.title}</p>

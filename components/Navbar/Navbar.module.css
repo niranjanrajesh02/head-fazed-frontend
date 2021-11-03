@@ -2,9 +2,10 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   /* background: red; */
   margin-top: 1rem;
-  width: 100vw;
+  /* width: 100vw; */
   padding: 0%;
 }
 
@@ -19,8 +20,11 @@
 
 .menuItem {
   display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  width: 7rem;
   align-items: center;
-  height: 3rem;
+  max-height: 1rem;
 }
 
 .logoContainer {
@@ -43,7 +47,7 @@
 
 .searchBarContainer input {
   margin: 0;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   padding: 0.8rem;
   background: #000;
   border: none;
@@ -95,31 +99,6 @@
   animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
-@-webkit-keyframes slide-in-left {
-  0% {
-    -webkit-transform: translateX(-1000px);
-    transform: translateX(-1000px);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-@keyframes slide-in-left {
-  0% {
-    -webkit-transform: translateX(-1000px);
-    transform: translateX(-1000px);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
 .sideDrawerTertiary {
   height: 100vh;
   width: 70vw;
@@ -160,34 +139,8 @@
 .tertiaryMenuMob {
   display: flex;
   flex-direction: column;
-  -webkit-animation: slide-in-fwd-center 0.8s
-    cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  animation: slide-in-fwd-center 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
-@-webkit-keyframes slide-in-fwd-center {
-  0% {
-    -webkit-transform: translateZ(-1400px);
-    transform: translateZ(-1400px);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    opacity: 1;
-  }
-}
-@keyframes slide-in-fwd-center {
-  0% {
-    -webkit-transform: translateZ(-1400px);
-    transform: translateZ(-1400px);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    opacity: 1;
-  }
-}
+
 .tertiaryMenuMob h3 {
   align-self: center;
   text-transform: capitalize;

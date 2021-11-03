@@ -9,6 +9,7 @@ const Navbar = () => {
   const [brandsDropdown, setBrandsDropdown] = useState(false);
   const [useDropdown, setUseDropdown] = useState(false);
   const [typeDropdown, setTypeDropdown] = useState(false);
+  const [accessoryDropdown, setAccessoryDropdown] = useState(false);
   const [secondaryDisplay, setSecondaryDisplay] = useState(false)
   const [tertiaryDisplay, setTertiaryDisplay] = useState(null)
   const isMobile = useMediaQuery({ maxWidth: '1024px' })
@@ -23,6 +24,9 @@ const Navbar = () => {
     else if (menu === "type") {
       setTypeDropdown(true);
     }
+    else if (menu === "accessory") {
+      setAccessoryDropdown(true);
+    }
   };
 
   const onMouseLeave = (menu) => {
@@ -34,6 +38,9 @@ const Navbar = () => {
     }
     else if (menu === "type") {
       setTypeDropdown(false);
+    }
+    else if (menu === "accessory") {
+      setAccessoryDropdown(false)
     }
   };
 
@@ -52,8 +59,9 @@ const Navbar = () => {
           <p>BY TYPE</p>
           {typeDropdown && <Dropdown menuName="type" />}
         </div>
-        <div>
+        <div className={styles.menuItem} onMouseEnter={() => onMouseEnter("accessory")} onMouseLeave={() => onMouseLeave("accessory")}>
           <p>ACCESSORIES</p>
+          {accessoryDropdown && <Dropdown menuName="accessory" />}
         </div>
       </div>
       <div className={styles.logoContainer}>

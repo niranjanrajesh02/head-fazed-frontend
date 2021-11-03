@@ -1,8 +1,5 @@
 .dropdownMenu {
-  position: absolute;
   background: rgb(24, 23, 23);
-  top: 6rem;
-  left: 2.6rem;
   text-align: center;
   margin: 0;
   -webkit-animation: slide-in-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
@@ -32,12 +29,7 @@
     opacity: 1;
   }
 }
-.dropdownMenuUse {
-  left: 11rem;
-}
-.dropdownMenuType {
-  left: 18.5rem;
-}
+
 .dropdownItem {
   margin: 1.5rem;
   width: 100%;
