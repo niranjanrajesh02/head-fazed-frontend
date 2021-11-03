@@ -4,9 +4,11 @@ import styles from './Dropdown.module.css'
 const Dropdown = ({ menuName }) => {
   const [click, setClick] = useState(false);
   const brandNames = [
-    { title: "AKG", link: "/brands" },
-    { title: "Audio Technica", link: "/brands" },
-    { title: "Audio Technica", link: "/brands" },
+    { title: "Audio-Technica", link: "/brands" },
+    { title: "Bose", link: "/brands" },
+    { title: "Beats", link: "/brands" },
+    { title: "JBL", link: "/brands" },
+    { title: "Skullcandy", link: "/brands" },
   ]
   const useNames = [
     { title: "Casual", link: "/brands" },

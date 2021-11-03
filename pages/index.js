@@ -9,7 +9,7 @@ export default function Home() {
       </Head>
       <div>
         <Navbar />
-        <h1>Welcome to HeadFazed</h1>
+        {/* <h1>Welcome to HeadFazed</h1> */}
       </div>
 
     </div>
