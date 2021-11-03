@@ -1,0 +1,29 @@
+.dropdownMenu {
+  position: absolute;
+  background: rgb(24, 23, 23);
+  top: 6rem;
+  left: 2.6rem;
+  text-align: center;
+  margin: 0;
+}
+.dropdownMenuUse {
+  left: 11rem;
+}
+.dropdownMenuType {
+  left: 18.5rem;
+}
+.dropdownItem {
+  margin: 1.5rem;
+  width: 100%;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-left: 0;
+}
+
+.dropdownItem:hover {
+  background: #40e0d0;
+}
+
+.dropdownMenuClicked {
+  display: none;
+}

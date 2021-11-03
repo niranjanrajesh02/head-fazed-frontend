@@ -17,15 +17,16 @@
   padding-left: 1rem;
 }
 
+.menuItem {
+  display: flex;
+  align-items: center;
+  height: 3rem;
+}
+
 .logoContainer {
   max-width: fit-content;
   display: flex;
   align-items: center;
-}
-
-.menuCategories div {
-  margin-left: 1rem;
-  margin-right: 1rem;
 }
 
 .logoContainer {
