@@ -8,8 +8,6 @@ export default function Home() {
         <title>HeadFazed</title>
       </Head>
       <div>
-        <Navbar />
-        {/* <h1>Welcome to HeadFazed</h1> */}
       </div>
 
     </div>

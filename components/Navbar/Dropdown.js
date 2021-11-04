@@ -28,10 +28,18 @@ const Dropdown = ({ menuName }) => {
     { title: "AMPs", link: "/brands" },
     { title: "Speakers", link: "/brands" },
   ]
+  const sortNames = [
+    { title: "Featured", link: "/brands" },
+    { title: "User Ratings", link: "/brands" },
+    { title: "Price: Ascending", link: "/brands" },
+    { title: "Price: Descending", link: "/brands" },
+    { title: "Alphabetical: Ascending", link: "/brands" },
+    { title: "Alphabetical: Descending", link: "/brands" },
+  ]
 
   return (
     <>
-      <div className={`${styles.dropdownMenu}`} >
+      <div className={`${styles.dropdownMenu} ${menuName === "shopsort" ? styles.dropSort : null}`} >
         {menuName === "brands" && brandNames.map((item, index) => {
           return (
             <div className={styles.dropdownItem} key={index}>
@@ -54,6 +62,13 @@ const Dropdown = ({ menuName }) => {
           )
         })}
         {menuName === "accessory" && accessoryNames.map((item, index) => {
+          return (
+            <div className={styles.dropdownItem} key={index}>
+              <p>{item.title}</p>
+            </div>
+          )
+        })}
+        {menuName === "shopsort" && sortNames.map((item, index) => {
           return (
             <div className={styles.dropdownItem} key={index}>
               <p>{item.title}</p>
