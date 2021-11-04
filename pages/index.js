@@ -1,4 +1,6 @@
 import Navbar from '@components/Navbar/Navbar'
+import AnnouncementBand from '@components/AnnouncementBand/AnnouncementBand'
+import Carousel from '@components/Carousel/CarouselContainer'
 import Head from 'next/head'
 
 export default function Home() {
@@ -9,6 +11,8 @@ export default function Home() {
       </Head>
       <div>
         <Navbar />
+        <AnnouncementBand />
+        <Carousel />
         <h1>Welcome to HeadFazed</h1>
       </div>
 
