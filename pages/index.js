@@ -1,6 +1,6 @@
 import Navbar from '@components/Navbar/Navbar'
 import AnnouncementBand from '@components/AnnouncementBand/AnnouncementBand'
-import Carousel from '@components/Carousel/CarouselContainer'
+import Carousel from '@components/Carousel/Carousel'
 import Head from 'next/head'
 
 export default function Home() {

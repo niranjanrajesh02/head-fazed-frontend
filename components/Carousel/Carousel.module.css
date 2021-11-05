@@ -9,9 +9,6 @@
 }
 
 .card{
-    width: 100%;
-    height: 10rem;
-    background: #333;
-    color: #fff;
-    font-size: 5rem;
+    width: 64rem;
+    height: 36rem;
 }
