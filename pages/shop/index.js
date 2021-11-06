@@ -1,10 +1,11 @@
+import React, { useState } from 'react'
 import FilterMenu from '@components/FilterMenu/FilterMenu'
 import { ChevronDown, ChevronUp, ShoppingBag } from '@components/icons'
 import MegaDrop from '@components/MegaDrop/MegaDrop'
-import SortDropdown from '@components/SortDropdown/SortDropdown'
-import React, { useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
+import SortDropdown from '@components/SortDropdown/SortDropdown'
 import styles from './shop.module.css'
+import Dropdown from '@components/Navbar/Dropdown'
 
 const Shop = () => {
   const [sortDropdown, setSortDropdown] = useState(false)
@@ -48,12 +49,12 @@ const Shop = () => {
       {isMobile && (
         <div className={styles.pageContainerMob}>
           <div className={styles.filterSortBox}>
-            <div className={styles.filterSortItem} onClick={() => setFilterView(!filterView)}>
+            <div className={styles.filterSortItem} onClick={() => {setFilterView(!filterView); setSortView(false)}}>
               <h3>Filters</h3>
               {!filterView && <ChevronDown />}
               {filterView && <ChevronUp />}
             </div>
-            <div className={styles.filterSortItem} onClick={() => setSortView(!sortView)}>
+            <div className={styles.filterSortItem} onClick={() => {setSortView(!sortView); setFilterView(false)}}>
               <h3>Sort</h3>
               {!sortView && <ChevronDown />}
               {sortView && <ChevronUp />}
@@ -62,6 +63,9 @@ const Shop = () => {
           <div className={styles.dynamicDisplay}>
             {filterView && (
               <MegaDrop use="shopFilterMob" />
+            )}
+            {sortView && (
+              <Dropdown menuName="mobSort"/>
             )}
           </div>
         </div>

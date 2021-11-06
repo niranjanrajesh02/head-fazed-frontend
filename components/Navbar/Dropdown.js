@@ -39,7 +39,7 @@ const Dropdown = ({ menuName }) => {
 
   return (
     <>
-      <div className={`${styles.dropdownMenu} ${menuName === "shopsort" ? styles.dropSort : null}`} >
+      <div className={`${styles.dropdownMenu} ${menuName === "shopsort" ? styles.dropSort : null}  ${menuName === "mobSort" ? styles.mobSort : null}`} >
         {menuName === "brands" && brandNames.map((item, index) => {
           return (
             <div className={styles.dropdownItem} key={index}>
@@ -69,6 +69,13 @@ const Dropdown = ({ menuName }) => {
           )
         })}
         {menuName === "shopsort" && sortNames.map((item, index) => {
+          return (
+            <div className={styles.dropdownItem} key={index}>
+              <p>{item.title}</p>
+            </div>
+          )
+        })}
+        {menuName === "mobSort" && sortNames.map((item, index) => {
           return (
             <div className={styles.dropdownItem} key={index}>
               <p>{item.title}</p>

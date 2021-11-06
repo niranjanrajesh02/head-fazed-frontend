@@ -11,6 +11,16 @@
   font-size: 0.8rem;
   padding: 0.2rem;
 }
+.mobSort {
+  /* background: red; */
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+}
+
+.mobSort div {
+  padding: 0.2rem;
+  font-size: 1.1rem;
+}
 @-webkit-keyframes slide-in-top {
   0% {
     -webkit-transform: translateY(-10px);
