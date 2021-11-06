@@ -1,0 +1,48 @@
+.filterSection {
+  /* background: blue; */
+
+  width: 12rem;
+}
+
+.filterSection h3 {
+  color: #40e0d0;
+}
+.filterSection h4 {
+  border-bottom: 1px solid #40e0d0;
+  width: fit-content;
+}
+
+.minMaxCont {
+  /* background: red; */
+  display: flex;
+  align-items: center;
+  padding: 0;
+  justify-content: space-evenly;
+}
+
+.minMaxCont input {
+  margin: 0;
+  border-radius: 0.5rem;
+  padding: 0.8rem;
+  background: #000;
+  border: none;
+  height: 2rem;
+  outline: none;
+  color: white;
+  border-width: 1rem;
+  border: 1px solid #40e0d0;
+  width: 6rem;
+}
+
+.starsRow {
+  display: flex;
+  /* background: red; */
+  width: 80%;
+  gap: 0.1rem;
+  align-items: center;
+}
+.starsRow p {
+  margin-left: 0.3rem;
+  font-weight: 600;
+  font-size: 20px;
+}
