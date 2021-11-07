@@ -1,16 +1,16 @@
 .advBannerContainer {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     background: red;
     margin-top: 2rem;
     width: 100vw;
     height: 25vw;
-    padding: 0%;
     position: relative;
-}
-
-.adBanner {
-    box-sizing: border-box;
     flex-direction: row;
 }
+
+/* .adBanner div{
+    display: block;
+    float: left;
+    box-sizing: border-box; 
+} */
