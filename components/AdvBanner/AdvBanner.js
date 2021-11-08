@@ -7,11 +7,11 @@ const AdvBanner = () => {
 
         /*dunno why it won't stack sideways :( */
     <div className={styles.advBannerContainer}>
-
-            <Image src="/images/SonyAdBanner.png" layout="fill" objectFit='contain' />
-            <Image src="/images/SonyAdBanner.png" layout="fill" objectFit='contain' />
-            <Image src="/images/SonyAdBanner.png" layout="fill" objectFit='contain' />
-        
+        <div className={styles.adBanner}>
+            <Image src="/images/SonyAdBanner.png" width={200} height={200} layout="responsive"/>
+            <Image src="/images/SonyAdBanner.png" width={200} height={200} layout="responsive"/>
+            <Image src="/images/SonyAdBanner.png" width={200} height={200} layout="responsive"/>
+        </div>        
     </div>
 
     )

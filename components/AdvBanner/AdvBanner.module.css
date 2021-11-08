@@ -1,6 +1,7 @@
 .advBannerContainer {
     display: flex;
     justify-content: center;
+    align-items: center;
     background: red;
     margin-top: 2rem;
     width: 100vw;
@@ -9,8 +10,8 @@
     flex-direction: row;
 }
 
-/* .adBanner div{
+.adBanner {
     display: block;
     float: left;
     box-sizing: border-box; 
-} */
+}
