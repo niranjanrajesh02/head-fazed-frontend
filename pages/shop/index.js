@@ -6,6 +6,7 @@ import { useMediaQuery } from 'react-responsive'
 import SortDropdown from '@components/SortDropdown/SortDropdown'
 import styles from './shop.module.css'
 import Dropdown from '@components/Navbar/Dropdown'
+import Gallery from '@components/Gallery/Gallery'
 
 const Shop = () => {
   const [sortDropdown, setSortDropdown] = useState(false)
@@ -38,23 +39,21 @@ const Shop = () => {
               {sortDropdown && <SortDropdown />}
             </div>
           </div>
-          <div className={styles.body}>
+          <div className={styles.shopBody}>
             <FilterMenu />
-            <div className={styles.gallerySection}>
-              <div>GALLERY</div>
-            </div>
+            <Gallery />
           </div>
         </div>
       )}
       {isMobile && (
         <div className={styles.pageContainerMob}>
           <div className={styles.filterSortBox}>
-            <div className={styles.filterSortItem} onClick={() => {setFilterView(!filterView); setSortView(false)}}>
+            <div className={styles.filterSortItem} onClick={() => { setFilterView(!filterView); setSortView(false) }}>
               <h3>Filters</h3>
               {!filterView && <ChevronDown />}
               {filterView && <ChevronUp />}
             </div>
-            <div className={styles.filterSortItem} onClick={() => {setSortView(!sortView); setFilterView(false)}}>
+            <div className={styles.filterSortItem} onClick={() => { setSortView(!sortView); setFilterView(false) }}>
               <h3>Sort</h3>
               {!sortView && <ChevronDown />}
               {sortView && <ChevronUp />}
@@ -65,9 +64,10 @@ const Shop = () => {
               <MegaDrop use="shopFilterMob" />
             )}
             {sortView && (
-              <Dropdown menuName="mobSort"/>
+              <Dropdown menuName="mobSort" />
             )}
           </div>
+          <Gallery />
         </div>
       )}
     </>

@@ -165,7 +165,7 @@ const Navbar = () => {
               <div className={styles.menuItemListMob}>
                 <div><p>Cables</p></div>
                 <div><p>Cases</p></div>
-                <div><p>AMPs</p></div>
+                <div><p>AMPs/DACs</p></div>
                 <div><p>Speakers</p></div>
                 <div className={styles.seeMore}><p>See More</p><RightArrow /></div>
               </div>

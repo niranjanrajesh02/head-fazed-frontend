@@ -25,7 +25,7 @@ const Dropdown = ({ menuName }) => {
   const accessoryNames = [
     { title: "Cables", link: "/brands" },
     { title: "Cases", link: "/brands" },
-    { title: "AMPs", link: "/brands" },
+    { title: "AMPs/DACs", link: "/brands" },
     { title: "Speakers", link: "/brands" },
   ]
   const sortNames = [

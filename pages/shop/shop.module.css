@@ -1,7 +1,5 @@
 .pageContainer {
-  padding-left: 2rem;
-  padding-right: 2rem;
-  width: 100vw;
+  width: 100%;
   margin-top: 2rem;
   /* background: red; */
 }
@@ -30,6 +28,7 @@
   height: 2rem;
   width: 7rem;
   /* font-size: 0.7rem; */
+  z-index: 10;
 }
 
 .sortController {
@@ -39,9 +38,13 @@
   cursor: pointer;
 }
 
-.body {
+.shopBody {
   /* background: red; */
+  max-width: 100%;
   display: flex;
+  padding: 0;
+  margin: 0;
+  /* background: blue; */
 }
 .pageContainerMob {
   padding-left: 2rem;
