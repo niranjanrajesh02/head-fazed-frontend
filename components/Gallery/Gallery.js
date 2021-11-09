@@ -2,7 +2,7 @@ import ProductTile from '@components/ProductTile/ProductTile'
 import React from 'react'
 import styles from './Gallery.module.css'
 
-const Gallery = () => {
+const Gallery = ({ page }) => {
   const testProducts = [
     {
       id: 1,
@@ -32,6 +32,7 @@ const Gallery = () => {
 
   return (
     <div className={styles.gallerySection}>
+      {testProducts.map((item, ind) => <ProductTile key={ind} product={item} />)}
       {testProducts.map((item, ind) => <ProductTile key={ind} product={item} />)}
       {testProducts.map((item, ind) => <ProductTile key={ind} product={item} />)}
 

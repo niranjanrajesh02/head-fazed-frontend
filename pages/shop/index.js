@@ -41,7 +41,7 @@ const Shop = () => {
           </div>
           <div className={styles.shopBody}>
             <FilterMenu />
-            <Gallery />
+            <Gallery page="shop" />
           </div>
         </div>
       )}

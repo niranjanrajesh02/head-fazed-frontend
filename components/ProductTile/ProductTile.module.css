@@ -1,9 +1,9 @@
 .tileContainer {
   /* background: red; */
   width: 15rem;
-  height: 25rem;
+  min-height: 20rem;
+  max-height: 25rem;
   padding: 1rem;
-
   align-items: center;
   border-radius: 5px;
   transition: background 0.2s, color 0.2s;

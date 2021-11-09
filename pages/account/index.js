@@ -10,7 +10,6 @@ const Account = () => {
       </div>
       <div className={styles.header}>
         <h1>Hello, USERNAME</h1>
-
       </div>
       <div className={styles.bodyCont}>
         <div className={styles.profileInfoSection}>

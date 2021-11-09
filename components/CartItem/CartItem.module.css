@@ -1,0 +1,49 @@
+.itemCont {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-around;
+  height: max-content;
+}
+
+.imgCont {
+  width: 30%;
+}
+
+.textCont {
+  /* background: green; */
+  width: 30%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+@media only screen and (max-width: 1024px) {
+  .imgCont {
+    width: 40%;
+  }
+  .textCont {
+    width: 40%;
+    font-size: small;
+  }
+}
+.quantityCont {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.quantityCont svg {
+  cursor: pointer;
+}
+
+.delete {
+  font-size: small;
+  cursor: pointer;
+  max-width: max-content;
+}
+.delete:hover {
+  color: red;
+  border-bottom: 1px solid red;
+}
