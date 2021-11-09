@@ -1,0 +1,156 @@
+.pageCont {
+  /* background: red; */
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+.mainDisplay {
+  display: flex;
+  width: 100%;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  gap: 5rem;
+  margin-bottom: 5rem;
+}
+
+.imgGallery {
+  /* background: red; */
+  width: 40%;
+}
+.textCont {
+  /* background: dodgerblue; */
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.ratingContainer {
+  display: flex;
+  border-bottom: 1px solid #40e0d0;
+  padding-bottom: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.purchaseCont {
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-between;
+  /* background: red; */
+  width: 40%;
+  /* align-self: center; */
+  margin-bottom: 2rem;
+}
+
+.purchaseCont h2 {
+  margin: 0;
+  padding: 0;
+}
+
+.cartBtn {
+  width: 8rem;
+  background: #40e0d0;
+  outline: none;
+  height: 2rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  transition-timing-function: ease-in;
+}
+
+.cartBtn:hover {
+  background: white;
+  color: black;
+}
+
+@media only screen and (max-width: 1024px) {
+  .mainDisplay {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .imgGallery {
+    width: 100%;
+  }
+  .textCont {
+    /* background: red; */
+    max-width: 100%;
+  }
+  .purchaseCont {
+    width: 100%;
+  }
+  .cartBtn {
+    width: 5rem;
+  }
+  .descCont {
+    max-height: 10rem;
+    line-height: 2rem;
+    font-size: small;
+    overflow-y: scroll;
+  }
+}
+
+.reviewsCont {
+  /* background: red; */
+  border-top: 1px solid #40e0d0;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  max-height: 120vh;
+  overflow-y: auto;
+}
+
+.reviewTitleCont {
+  text-align: center;
+}
+.ratingsBox {
+  /* background: blue; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.reviewsBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.review {
+  /* background: red; */
+  border: 1px solid #40e0d0;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  width: 60%;
+  border-radius: 10px;
+}
+.userDetails {
+  /* background: green; */
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  gap: 1rem;
+}
+
+.userDetails span {
+  background: #40e0d0;
+  padding: 0.2rem;
+  font-size: small;
+}
+.reviewText {
+  margin-top: 1rem;
+}
+
+.recommendedCont {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.recommendedGallery {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}

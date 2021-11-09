@@ -13,6 +13,7 @@ const testProducts = [
     seller: "AKG",
     avg_rating: 4.1,
     reviews: 2019,
+    quantity: 2,
     categories: ["Over Ear", "Audiophile", "Wired"]
   },
   {
@@ -25,12 +26,15 @@ const testProducts = [
     seller: "Apple",
     avg_rating: 3.2,
     reviews: 982,
+    quantity: 1,
     categories: ["In Ear", "Everyday", "True Wireless"]
   }
 ]
 const Cart = () => {
   const [products, setProducts] = useState(testProducts);
   const [updated, setUpdated] = useState(false)
+
+
   const [total, setTotal] = useState(0);
   //initial calc
   useEffect(() => {
@@ -40,7 +44,9 @@ const Cart = () => {
   }, [])
   function updateHandler() {
     setUpdated(true);
-    //TODO update price with PUT request to update cart ??
+  }
+  function updateCart() {
+    //TODO PUT req to update Cart
   }
 
 

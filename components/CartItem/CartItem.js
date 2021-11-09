@@ -4,7 +4,7 @@ import styles from './CartItem.module.css'
 import { Minus, Plus } from '@components/icons'
 
 
-const CartItem = ({ product, updateHandler }) => {
+const CartItem = ({ product, updateHandler, serial }) => {
   const [quantity, setQuantity] = useState(1);
   function decrementQuantity() {
     if (quantity === 1) {
@@ -24,6 +24,8 @@ const CartItem = ({ product, updateHandler }) => {
       updateHandler();
     }
   }
+
+
   return (
     <div className={styles.itemCont}>
       <div className={styles.imgCont}>

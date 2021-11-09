@@ -1,3 +1,4 @@
+@import "~react-image-gallery/styles/css/image-gallery.css";
 html,
 body {
   padding-left: 1rem;
@@ -32,4 +33,12 @@ p {
     padding-left: 0;
     padding-right: 0;
   }
+}
+::-webkit-scrollbar {
+  width: 5px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #757575;
 }
