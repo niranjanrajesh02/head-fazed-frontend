@@ -1,6 +1,8 @@
 import { Edit, RightArrow } from '@components/icons'
 import React, { useState } from 'react'
 import styles from './account.module.css'
+import Link from 'next/link'
+
 const Account = () => {
   const [editMode, setEditMode] = useState(false)
   return (
@@ -37,14 +39,18 @@ const Account = () => {
           {editMode && <button className={styles.submitButton} onClick={() => setEditMode(false)}>Submit</button>}
         </div>
         <div className={styles.navButtonContainer}>
-          <div className={styles.navButton}>
-            <h2>Your Wishlist</h2>
-            <RightArrow />
-          </div>
-          <div className={styles.navButton}>
-            <h2>Your Cart</h2>
-            <RightArrow />
-          </div>
+          <Link href="/wishlist">
+            <div className={styles.navButton}>
+              <h2>Your Wishlist</h2>
+              <RightArrow />
+            </div>
+          </Link>
+          <Link href="/cart">
+            <div className={styles.navButton}>
+              <h2>Your Cart</h2>
+              <RightArrow />
+            </div>
+          </Link>
         </div>
       </div>
     </div>

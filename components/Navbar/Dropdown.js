@@ -1,40 +1,41 @@
 import React, { useState } from 'react'
 import styles from './Dropdown.module.css'
+import Link from 'next/link'
 
 const Dropdown = ({ menuName }) => {
   const [click, setClick] = useState(false);
   const brandNames = [
-    { title: "Audio-Technica", link: "/brands" },
-    { title: "Bose", link: "/brands" },
-    { title: "Beats", link: "/brands" },
-    { title: "JBL", link: "/brands" },
-    { title: "Skullcandy", link: "/brands" },
+    { title: "Audio-Technica", link: "/shop/Audio-Technica" },
+    { title: "Bose", link: "/shop/Bose" },
+    { title: "Beats", link: "/shop/Beats" },
+    { title: "JBL", link: "/shop/JBL" },
+    { title: "Skullcandy", link: "/shop/Skullcandy" },
   ]
   const useNames = [
-    { title: "Casual", link: "/brands" },
-    { title: "Sport", link: "/brands" },
-    { title: "Audiophile", link: "/brands" },
-    { title: "Gaming", link: "/brands" },
+    { title: "Casual", link: "/shop/Casual" },
+    { title: "Sport", link: "/shop/Sport" },
+    { title: "Audiophile", link: "/shop/Audiophile" },
+    { title: "Gaming", link: "/shop/Gaming" },
   ]
   const typeNames = [
-    { title: "Wired", link: "/brands" },
-    { title: "Wireless", link: "/brands" },
-    { title: "Over-ear", link: "/brands" },
-    { title: "In-ear", link: "/brands" },
+    { title: "Wired", link: "/shop/Wired" },
+    { title: "Wireless", link: "/shop/Wireless" },
+    { title: "Over-ear", link: "/shop/Over-ear" },
+    { title: "In-ear", link: "/shop/In-ear" },
   ]
   const accessoryNames = [
-    { title: "Cables", link: "/brands" },
-    { title: "Cases", link: "/brands" },
-    { title: "AMPs/DACs", link: "/brands" },
-    { title: "Speakers", link: "/brands" },
+    { title: "Cables", link: "/shop/Cables" },
+    { title: "Cases", link: "/shop/Cases" },
+    { title: "AMPs/DACs", link: "/shop/AMPs+DACs" },
+    { title: "Speakers", link: "/shop/Speakers" },
   ]
   const sortNames = [
-    { title: "Featured", link: "/brands" },
-    { title: "User Ratings", link: "/brands" },
-    { title: "Price: Ascending", link: "/brands" },
-    { title: "Price: Descending", link: "/brands" },
-    { title: "Alphabetical: Ascending", link: "/brands" },
-    { title: "Alphabetical: Descending", link: "/brands" },
+    { title: "Featured", link: "/shop/" },
+    { title: "User Ratings", link: "/shop/" },
+    { title: "Price: Ascending", link: "/shop/" },
+    { title: "Price: Descending", link: "/shop/" },
+    { title: "Alphabetical: Ascending", link: "/shop/" },
+    { title: "Alphabetical: Descending", link: "/shop/" },
   ]
 
   return (
@@ -43,28 +44,28 @@ const Dropdown = ({ menuName }) => {
         {menuName === "brands" && brandNames.map((item, index) => {
           return (
             <div className={styles.dropdownItem} key={index}>
-              <p>{item.title}</p>
+              <Link href={item.link}><p>{item.title}</p></Link>
             </div>
           )
         })}
         {menuName === "use" && useNames.map((item, index) => {
           return (
             <div className={styles.dropdownItem} key={index}>
-              <p>{item.title}</p>
+              <Link href={item.link}><p>{item.title}</p></Link>
             </div>
           )
         })}
         {menuName === "type" && typeNames.map((item, index) => {
           return (
             <div className={styles.dropdownItem} key={index}>
-              <p>{item.title}</p>
+              <Link href={item.link}><p>{item.title}</p></Link>
             </div>
           )
         })}
         {menuName === "accessory" && accessoryNames.map((item, index) => {
           return (
             <div className={styles.dropdownItem} key={index}>
-              <p>{item.title}</p>
+              <Link href={item.link}><p>{item.title}</p></Link>
             </div>
           )
         })}

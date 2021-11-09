@@ -16,8 +16,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 14%;
   /* background: red; */
+  gap: 1rem;
 }
 .title svg {
   color: #40e0d0;

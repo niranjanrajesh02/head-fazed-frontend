@@ -4,7 +4,7 @@ import Image from "next/image"
 import Dropdown from './Dropdown';
 import { useMediaQuery } from 'react-responsive';
 import { BackArrow, Cart, Cross, Menu, RightArrow, User } from '@components/icons';
-
+import Link from 'next/link';
 const Navbar = () => {
   const [brandsDropdown, setBrandsDropdown] = useState(false);
   const [useDropdown, setUseDropdown] = useState(false);
@@ -70,15 +70,15 @@ const Navbar = () => {
       <div className={styles.searchBarContainer}>
         <input type="text" placeholder="Search" />
       </div>
-      <div className={styles.dynamicContainer}>
+      <div className={styles.rightContainer}>
         <div>
-          <p>My Account</p>
+          <Link href="/account"><p>My Account</p></Link>
         </div>
         <div>
           <p>Login</p>
         </div>
         <div>
-          <p>Cart</p>
+          <Link href="/cart"><p>Cart</p></Link>
         </div>
       </div>
     </div>
@@ -126,12 +126,12 @@ const Navbar = () => {
             <div className={styles.tertiaryMenuMob}>
               <h3>{tertiaryDisplay}</h3>
               <div className={styles.menuItemListMob}>
-                <div><p>Audio-Technica</p></div>
-                <div><p>Bose</p></div>
-                <div><p>Beats</p></div>
-                <div><p>JBL</p></div>
-                <div><p>Skullcandy</p></div>
-                <div className={styles.seeMore}><p>See More</p><RightArrow /></div>
+                <Link href="/shop/Audio-Technica"><div><p>Audio-Technica</p></div></Link>
+                <Link href="/shop/Bose"><div><p>Bose</p></div></Link>
+                <Link href="/shop/Beats"><div><p>Beats</p></div></Link>
+                <Link href="/shop/JBL"><div><p>JBL</p></div></Link>
+                <Link href="/shop/Skullcandy"><div><p>Skullcandy</p></div></Link>
+
               </div>
             </div>
           )}
@@ -139,11 +139,11 @@ const Navbar = () => {
             <div className={styles.tertiaryMenuMob}>
               <h3>{tertiaryDisplay}</h3>
               <div className={styles.menuItemListMob}>
-                <div><p>Casual</p></div>
-                <div><p>Sports</p></div>
-                <div><p>Audiophile</p></div>
-                <div><p>Gaming</p></div>
-                <div className={styles.seeMore}><p>See More</p><RightArrow /></div>
+                <Link href="/shop/Casual"><div><p>Casual</p></div></Link>
+                <Link href="/shop/Sports"><div><p>Sports</p></div></Link>
+                <Link href="/shop/Audiophile"><div><p>Audiophile</p></div></Link>
+                <Link href="/shop/Gaming"><div><p>Gaming</p></div></Link>
+
               </div>
             </div>
           )}
@@ -151,11 +151,11 @@ const Navbar = () => {
             <div className={styles.tertiaryMenuMob}>
               <h3>{tertiaryDisplay}</h3>
               <div className={styles.menuItemListMob}>
-                <div><p>Wired</p></div>
-                <div><p>Wireless</p></div>
-                <div><p>Over-ear</p></div>
-                <div><p>In-ear</p></div>
-                <div className={styles.seeMore}><p>See More</p><RightArrow /></div>
+                <Link href="/shop/Wired"><div><p>Wired</p></div></Link>
+                <Link href="/shop/Wireless"><div><p>Wireless</p></div></Link>
+                <Link href="/shop/Over-ear"><div><p>Over-ear</p></div></Link>
+                <Link href="/shop/In-ear"><div><p>In-ear</p></div></Link>
+
               </div>
             </div>
           )}
@@ -163,11 +163,11 @@ const Navbar = () => {
             <div className={styles.tertiaryMenuMob}>
               <h3>{tertiaryDisplay}</h3>
               <div className={styles.menuItemListMob}>
-                <div><p>Cables</p></div>
-                <div><p>Cases</p></div>
-                <div><p>AMPs/DACs</p></div>
-                <div><p>Speakers</p></div>
-                <div className={styles.seeMore}><p>See More</p><RightArrow /></div>
+                <Link href="/shop/Cables"><div><p>Cables</p></div></Link>
+                <Link href="/shop/Cases"><div><p>Cases</p></div></Link>
+                <Link href="/shop/AMPs+DACs"><div><p>AMPs/DACs</p></div></Link>
+                <Link href="/shop/Speakers"><div><p>Speakers</p></div></Link>
+
               </div>
             </div>
           )}

@@ -7,8 +7,11 @@ import SortDropdown from '@components/SortDropdown/SortDropdown'
 import styles from './shop.module.css'
 import Dropdown from '@components/Navbar/Dropdown'
 import Gallery from '@components/Gallery/Gallery'
+import { useRouter } from 'next/router'
 
-const Shop = () => {
+const Collection = () => {
+  const router = useRouter()
+  const { collection } = router.query
   const [sortDropdown, setSortDropdown] = useState(false)
   const [filterView, setFilterView] = useState(false)
   const [sortView, setSortView] = useState(false);
@@ -28,7 +31,7 @@ const Shop = () => {
           <div className={styles.header}>
             <div className={styles.title}>
               <ShoppingBag />
-              <h1>Shop All</h1>
+              <h1>Shop {collection}</h1>
             </div>
             <div className={styles.sortContainer}>
               <div className={styles.sortController} onClick={() => setSortDropdown(!sortDropdown)}>
@@ -74,4 +77,4 @@ const Shop = () => {
   )
 }
 
-export default Shop
+export default Collection
