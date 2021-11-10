@@ -4,6 +4,7 @@ import Image from "next/image"
 import Dropdown from './Dropdown';
 import { useMediaQuery } from 'react-responsive';
 import { BackArrow, Cart, Cross, Menu, RightArrow, User } from '@components/icons';
+import { useUser } from '@auth0/nextjs-auth0';
 import Link from 'next/link';
 const Navbar = () => {
   const [brandsDropdown, setBrandsDropdown] = useState(false);
@@ -13,7 +14,7 @@ const Navbar = () => {
   const [secondaryDisplay, setSecondaryDisplay] = useState(false)
   const [tertiaryDisplay, setTertiaryDisplay] = useState(null)
   const isMobile = useMediaQuery({ maxWidth: '1024px' })
-
+  const { user, error, isLoading } = useUser();
   const onMouseEnter = (menu) => {
     if (menu === "brands") {
       setBrandsDropdown(true);
@@ -68,18 +69,26 @@ const Navbar = () => {
         <Image src="/images/MainLogo.png" width={110} height={110} />
       </div>
       <div className={styles.searchBarContainer}>
-        <input type="text" placeholder="Search" />
+
       </div>
       <div className={styles.rightContainer}>
-        <div>
-          <Link href="/account"><p>My Account</p></Link>
-        </div>
-        <div>
-          <p>Login</p>
-        </div>
-        <div>
-          <Link href="/cart"><p>Cart</p></Link>
-        </div>
+        <input type="text" placeholder="Search" />
+        {user && (
+          <>
+            <div>
+              <Link href="/account"><p>My Account</p></Link>
+            </div>
+
+            <div>
+              <Link href="/cart"><p>Cart</p></Link>
+            </div>
+          </>
+        )}
+        {!user && (
+          <div>
+            <a href="/api/auth/login">Log In</a>
+          </div>
+        )}
       </div>
     </div>
   )
@@ -131,7 +140,6 @@ const Navbar = () => {
                 <Link href="/shop/Beats"><div><p>Beats</p></div></Link>
                 <Link href="/shop/JBL"><div><p>JBL</p></div></Link>
                 <Link href="/shop/Skullcandy"><div><p>Skullcandy</p></div></Link>
-
               </div>
             </div>
           )}
@@ -167,7 +175,6 @@ const Navbar = () => {
                 <Link href="/shop/Cases"><div><p>Cases</p></div></Link>
                 <Link href="/shop/AMPs+DACs"><div><p>AMPs/DACs</p></div></Link>
                 <Link href="/shop/Speakers"><div><p>Speakers</p></div></Link>
-
               </div>
             </div>
           )}

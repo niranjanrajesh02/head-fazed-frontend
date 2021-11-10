@@ -15,8 +15,8 @@
   justify-content: space-around;
   align-items: center;
   width: 40%;
-  padding-left: 1rem;
   z-index: 10;
+  /* background: dodgerblue; */
 }
 
 .menuItem {
@@ -29,27 +29,27 @@
   width: 6rem;
   margin-top: 2.5rem;
   cursor: pointer;
-}
-
-.logoContainer {
-  max-width: fit-content;
-  display: flex;
-  align-items: center;
-}
-
-.logoContainer {
-  width: 20%;
   justify-self: center;
 }
 
-.searchBarContainer {
-  width: 10%;
+.logoContainer {
+  width: fit-content;
   display: flex;
   align-items: center;
-  padding: 0;
+  /* justify-content: center; */
 }
 
-.searchBarContainer input {
+.rightContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  /* margin-right: 2rem; */
+  margin-top: 0.5rem;
+  width: 30%;
+  /* background: limegreen; */
+}
+.rightContainer input {
   margin: 0;
   border-radius: 0.5rem;
   padding: 0.8rem;
@@ -61,14 +61,6 @@
   border-width: 1rem;
   border: 1px solid #40e0d0;
   width: 13rem;
-}
-
-.rightContainer {
-  display: flex;
-  flex-direction: row;
-  justify-self: flex-end;
-  align-items: center;
-  margin-right: 2rem;
 }
 
 .rightContainer div {

@@ -8,6 +8,7 @@ import styles from './shop.module.css'
 import Dropdown from '@components/Navbar/Dropdown'
 import Gallery from '@components/Gallery/Gallery'
 import { useRouter } from 'next/router'
+import Navbar from '@components/Navbar/Navbar'
 
 const Collection = () => {
   const router = useRouter()
@@ -26,6 +27,7 @@ const Collection = () => {
   const isMobile = useMediaQuery({ maxWidth: '1024px' })
   return (
     <>
+      <Navbar />
       {!isMobile && (
         <div className={styles.pageContainer}>
           <div className={styles.header}>
