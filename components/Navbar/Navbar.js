@@ -140,10 +140,10 @@ const Navbar = () => {
               <h3>{tertiaryDisplay}</h3>
               <div className={styles.menuItemListMob}>
                 <Link href="/shop/Audio-Technica"><div><p>Audio-Technica</p></div></Link>
-                <Link href="/shop/Bose"><div><p>Bose</p></div></Link>
-                <Link href="/shop/Beats"><div><p>Beats</p></div></Link>
                 <Link href="/shop/JBL"><div><p>JBL</p></div></Link>
+                <Link href="/shop/Razer"><div><p>Razer</p></div></Link>
                 <Link href="/shop/Skullcandy"><div><p>Skullcandy</p></div></Link>
+                <Link href="/shop/Sony"><div><p>Sony</p></div></Link>
               </div>
             </div>
           )}
@@ -152,7 +152,7 @@ const Navbar = () => {
               <h3>{tertiaryDisplay}</h3>
               <div className={styles.menuItemListMob}>
                 <Link href="/shop/Casual"><div><p>Casual</p></div></Link>
-                <Link href="/shop/Sports"><div><p>Sports</p></div></Link>
+                <Link href="/shop/Studios"><div><p>Studios</p></div></Link>
                 <Link href="/shop/Audiophile"><div><p>Audiophile</p></div></Link>
                 <Link href="/shop/Gaming"><div><p>Gaming</p></div></Link>
 

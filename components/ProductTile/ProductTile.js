@@ -23,8 +23,8 @@ const ProductTile = ({ key, product }) => {
 
         <div className={styles.ratingContainer}>
           <div>
-            {[...Array(fullStarNo)].map((item, ind) => <FullStar />)}
-            {[...Array(emptyStarNo)].map((item, ind) => <EmptyStar />)}
+            {[...Array(fullStarNo)].map((item, ind) => <FullStar key={ind} />)}
+            {[...Array(emptyStarNo)].map((item, ind) => <EmptyStar key={ind} />)}
           </div>
           <p>({product.reviews})</p>
         </div>

@@ -6,14 +6,14 @@ const Dropdown = ({ menuName }) => {
   const [click, setClick] = useState(false);
   const brandNames = [
     { title: "Audio-Technica", link: "/shop/Audio-Technica" },
-    { title: "Bose", link: "/shop/Bose" },
-    { title: "Beats", link: "/shop/Beats" },
     { title: "JBL", link: "/shop/JBL" },
+    { title: "Razer", link: "/shop/Razer" },
     { title: "Skullcandy", link: "/shop/Skullcandy" },
+    { title: "Sony", link: "/shop/Sony" },
   ]
   const useNames = [
     { title: "Casual", link: "/shop/Casual" },
-    { title: "Sport", link: "/shop/Sport" },
+    { title: "Studio", link: "/shop/Studio" },
     { title: "Audiophile", link: "/shop/Audiophile" },
     { title: "Gaming", link: "/shop/Gaming" },
   ]
