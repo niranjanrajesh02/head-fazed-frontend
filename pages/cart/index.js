@@ -1,5 +1,6 @@
 
 import CartItem from '@components/CartItem/CartItem'
+import Navbar from '@components/Navbar/Navbar'
 import React, { useEffect, useState } from 'react'
 import styles from './cart.module.css'
 const testProducts = [
@@ -51,29 +52,32 @@ const Cart = () => {
 
 
   return (
-    <div className={styles.pageCont}>
-      <div className={styles.header}>
-        <h1>Your Cart</h1>
-      </div>
-      <div className={styles.cartContainer}>
-        <div className={styles.itemsContainer}>
-          {products.map((item, ind) => (
-            <CartItem product={item} updateHandler={updateHandler} />
-          ))}
+    <>
+      <Navbar />
+      <div className={styles.pageCont}>
+        <div className={styles.header}>
+          <h1>Your Cart</h1>
+        </div>
+        <div className={styles.cartContainer}>
+          <div className={styles.itemsContainer}>
+            {products.map((item, ind) => (
+              <CartItem product={item} updateHandler={updateHandler} />
+            ))}
 
-        </div>
-        <div className={styles.summaryContainer}>
-          {!updated && (
-            <div>
-              <h3>Total: ₹<span>{total}</span></h3>
-              <button className={styles.checkoutBtn}>Checkout</button>
-              <button className={styles.continueBtn}>Continue Shopping</button>
-            </div>
-          )}
-          {updated && <button className={styles.checkoutBtn}>Update Cart</button>}
+          </div>
+          <div className={styles.summaryContainer}>
+            {!updated && (
+              <div>
+                <h3>Total: ₹<span>{total}</span></h3>
+                <button className={styles.checkoutBtn}>Checkout</button>
+                <button className={styles.continueBtn}>Continue Shopping</button>
+              </div>
+            )}
+            {updated && <button className={styles.checkoutBtn}>Update Cart</button>}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 

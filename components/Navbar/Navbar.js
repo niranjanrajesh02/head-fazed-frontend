@@ -3,9 +3,10 @@ import styles from "./Navbar.module.css"
 import Image from "next/image"
 import Dropdown from './Dropdown';
 import { useMediaQuery } from 'react-responsive';
-import { BackArrow, Cart, Cross, Menu, RightArrow, User } from '@components/icons';
+import { BackArrow, Cart, CartSmall, Cross, Menu, RightArrow, User, UserIcon } from '@components/icons';
 import { useUser } from '@auth0/nextjs-auth0';
 import Link from 'next/link';
+
 const Navbar = () => {
   const [brandsDropdown, setBrandsDropdown] = useState(false);
   const [useDropdown, setUseDropdown] = useState(false);
@@ -66,7 +67,9 @@ const Navbar = () => {
         </div>
       </div>
       <div className={styles.logoContainer}>
-        <Image src="/images/MainLogo.png" width={110} height={110} />
+        <Link href="/" >
+          <Image src="/images/MainLogo.png" width={110} height={110} />
+        </Link>
       </div>
       <div className={styles.searchBarContainer}>
 
@@ -76,11 +79,12 @@ const Navbar = () => {
         {user && (
           <>
             <div>
-              <Link href="/account"><p>My Account</p></Link>
+              <Link href="/account"><a><UserIcon /></a></Link>
             </div>
-
             <div>
-              <Link href="/cart"><p>Cart</p></Link>
+              <Link href="/cart">
+                <a><CartSmall /></a>
+              </Link>
             </div>
           </>
         )}

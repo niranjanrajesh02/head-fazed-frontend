@@ -38,11 +38,11 @@ export function Cross() {
   );
 }
 
-export function User() {
+export function UserIcon() {
   return (
     <svg
-      width="35"
-      height="35"
+      width="24"
+      height="24"
       fill="none"
       stroke="currentColor"
       strokeLinecap="round"
@@ -58,7 +58,7 @@ export function User() {
   );
 }
 
-export function Cart() {
+export function Small() {
   return (
     <svg
       width="32"
@@ -266,6 +266,27 @@ export function Minus() {
     >
       <circle cx="12" cy="12" r="10"></circle>
       <path d="M8 12h8"></path>
+    </svg>
+  );
+}
+
+export function CartSmall() {
+  return (
+    <svg
+      width="24"
+      height="24"
+      fill="none"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="1.5"
+      color="var(--geist-foreground)"
+      shapeRendering="geometricPrecision"
+      viewBox="0 0 24 24"
+    >
+      <circle cx="9" cy="21" r="1"></circle>
+      <circle cx="20" cy="21" r="1"></circle>
+      <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"></path>
     </svg>
   );
 }

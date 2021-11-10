@@ -37,6 +37,7 @@
   display: flex;
   align-items: center;
   /* justify-content: center; */
+  cursor: pointer;
 }
 
 .rightContainer {
@@ -44,7 +45,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  /* margin-right: 2rem; */
+  padding-right: 3rem;
   margin-top: 0.5rem;
   width: 30%;
   /* background: limegreen; */
@@ -60,9 +61,12 @@
   color: white;
   border-width: 1rem;
   border: 1px solid #40e0d0;
-  width: 13rem;
+  width: 18rem;
 }
 
+.rightContainer a:hover {
+  color: #40e0d0;
+}
 .rightContainer div {
   /* background: #000; */
   margin-left: 1rem;
