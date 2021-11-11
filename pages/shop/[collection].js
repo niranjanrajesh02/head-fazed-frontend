@@ -21,70 +21,21 @@ const Collection = () => {
   const [sortView, setSortView] = useState(false);
   const [products, setProducts] = useState(null);
   const [sortOption, setSortOption] = useState(-1);
-  const [minPriceFilter, setMinPriceFilter] = useState(null);
-  const [maxPriceFilter, setMaxPriceFilter] = useState(null);
-  const [starFilter, setStarFilter] = useState(null);
+  const [minPriceFilter, setMinPriceFilter] = useState(0);
+  const [maxPriceFilter, setMaxPriceFilter] = useState(99999);
+  const [starFilter, setStarFilter] = useState(0);
   const isMobile = useMediaQuery({ maxWidth: '1024px' })
   useEffect(() => {
     if (collection) {
-      console.log(collection.toLowerCase());
-      if (collection === "All") {
-        let config = {
-          method: 'get',
-          url: '/products',
-        };
-        axios(config)
-          .then(function (response) {
-            // console.log((response.data));
-            setProducts(response.data)
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
-      }
-      else {
-        let config = {
-          method: 'get',
-          url: `/products/collection/${collection.toLowerCase()}`,
-          headers: {
-            'Content-Type': 'application/json'
-          },
-        };
-        console.log(config);
-
-        axios(config)
-          .then(function (response) {
-            console.log((response.data));
-            setProducts(response.data)
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
-
-      }
-    }
-  }, [collection])
-
-  useEffect(() => {
-    setSortDropdown(false);
-    if (collection === "All") {
+      setSortDropdown(false);
       let config = {
         method: 'get',
-        url: `/products?sort=${sortOption}`,
+        url: `/products?cid=${collection.toLowerCase()}&minPrice=${minPriceFilter}&maxPrice=${maxPriceFilter}&minStars=${starFilter}&sort=${sortOption}`,
+        headers: {
+          'Content-Type': 'application/json'
+        },
       };
-      axios(config)
-        .then(function (response) {
-          console.log((response.data));
-          setProducts(response.data)
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-    } else {
-      let config = {
-        method: 'get',
-        url: `/products/collection/${collection.toLowerCase()}?sort=${sortOption}`,
-      };
+      console.log(config);
       axios(config)
         .then(function (response) {
           console.log((response.data));
@@ -94,9 +45,14 @@ const Collection = () => {
           console.log(error);
         });
     }
+  }, [collection, minPriceFilter, maxPriceFilter, starFilter, sortOption])
 
-
-  }, [sortOption])
+  function resetFilters() {
+    setMinPriceFilter(0);
+    setMaxPriceFilter(99999);
+    setStarFilter(0);
+    setSortOption(-1);
+  }
 
   return (
     <>
@@ -121,7 +77,12 @@ const Collection = () => {
                   </div>
                 </div>
                 <div className={styles.shopBody}>
-                  <FilterMenu />
+                  <FilterMenu
+                    setMinPriceFilter={setMinPriceFilter}
+                    setMaxPriceFilter={setMaxPriceFilter}
+                    setStarFilter={setStarFilter}
+                    resetFilters={resetFilters}
+                  />
                   <Gallery products={products} />
                 </div>
               </div>
