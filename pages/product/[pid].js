@@ -4,6 +4,9 @@ import styles from './Product.module.css'
 import { EmptyStar, FullStar } from '@components/icons'
 import ImageGallery from 'react-image-gallery';
 import ProductTile from '@components/ProductTile/ProductTile';
+import Navbar from '@components/Navbar/Navbar';
+import axios from 'axios';
+import LoadingSpinner from '@components/LoadingSpinner';
 
 const testProduct = {
   id: 1,
@@ -70,95 +73,124 @@ const recommendedProducts = [
   }
 ]
 
+const average = arr => arr.reduce((p, c) => p + c, 0) / arr.length;
 
 const Product = () => {
   const [product, setProduct] = useState(null);
-  const [recommended, setRecommended] = useState(null);
-  const fullStarNo = Math.floor(product ? product.avg_rating : 0)
+  let fullStarNo = 0;
+  if (product && product.ratings.length > 0) {
+    fullStarNo = Math.floor(average(product.ratings))
+  }
   const emptyStarNo = 5 - fullStarNo
+  const [recommended, setRecommended] = useState(null);
   const router = useRouter()
   const { pid } = router.query
   useEffect(() => {
-    setProduct(testProduct)
-    setRecommended(recommendedProducts)
-  }, [])
+    if (pid) {
+      let config = {
+        method: 'get',
+        url: `/products/find/${pid}`,
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      };
+
+      axios(config)
+        .then(function (response) {
+          console.log((response.data));
+          setProduct(response.data)
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
+
+    // setProduct(testProduct)
+    // setRecommended(recommendedProducts)
+  }, [pid])
   const images = [];
+
   product?.images.forEach((item) => images.push({ original: item }))
 
 
   return (
-    <div className={styles.pageCont}>
-      {product && (
-        <>
-          <div className={styles.mainDisplay}>
-            <div className={styles.imgGallery}>
-              <ImageGallery items={images} showFullscreenButton={false} autoplay={true}
-                showPlayButton={false} />
+    <>
+      <Navbar />
+      <div className={styles.pageCont}>
+        {product && (
+          <>
+            <div className={styles.mainDisplay}>
+              <div className={styles.imgGallery}>
+                <ImageGallery items={images} showFullscreenButton={false} autoplay={true}
+                  showPlayButton={false} infinite={false} />
+              </div>
+              <div className={styles.textCont}>
+                <h3>{product.seller.name}</h3>
+                <h1>{product.name}</h1>
+                <h5>{product.short_description}</h5>
+                <div className={styles.ratingContainer}>
+                  <div>
+                    {[...Array(fullStarNo)].map((item, ind) => <FullStar />)}
+                    {[...Array(emptyStarNo)].map((item, ind) => <EmptyStar />)}
+                  </div>
+                  <p>({product.reviews.length})</p>
+                </div>
+                <div className={styles.purchaseCont}>
+                  <h2>₹{product.price}</h2>
+                  <button className={styles.cartBtn}>Add to Cart</button>
+                </div>
+                <div className={styles.descCont}>
+                  <p>{product.long_description}</p>
+                </div>
+              </div>
             </div>
-            <div className={styles.textCont}>
-              <h3>{product.seller}</h3>
-              <h1>{product.name}</h1>
-              <h5>{product.short_desc}</h5>
-              <div className={styles.ratingContainer}>
+            <div className={styles.reviewsCont}>
+              <div className={styles.reviewTitleCont}>
+                <h1>Reviews for {product.name}</h1>
+              </div>
+              <div className={styles.ratingsBox}>
                 <div>
                   {[...Array(fullStarNo)].map((item, ind) => <FullStar />)}
                   {[...Array(emptyStarNo)].map((item, ind) => <EmptyStar />)}
                 </div>
-                <p>({product.reviews.length})</p>
+                <p>Based on {product.reviews.length} reviews</p>
               </div>
-              <div className={styles.purchaseCont}>
-                <h2>₹{product.price}</h2>
-                <button className={styles.cartBtn}>Add to Cart</button>
-              </div>
-              <div className={styles.descCont}>
-                <p>{product.description}</p>
-              </div>
-            </div>
-          </div>
-          <div className={styles.reviewsCont}>
-            <div className={styles.reviewTitleCont}>
-              <h1>Reviews for {product.name}</h1>
-            </div>
-            <div className={styles.ratingsBox}>
-              <div>
-                {[...Array(fullStarNo)].map((item, ind) => <FullStar />)}
-                {[...Array(emptyStarNo)].map((item, ind) => <EmptyStar />)}
-              </div>
-              <p>Based on {product.reviews.length} reviews</p>
-            </div>
-            <div className={styles.reviewsBox}>
-              {product.reviews.map((item, ind) => {
-                const fullStarNo = Math.floor(item.rating)
-                const emptyStarNo = 5 - fullStarNo
-                return (
-                  <div className={styles.review}>
-                    <div className={styles.userDetails}>
-                      <h4>{item.user_name}</h4>
-                      {item.verified && <span>Verified</span>}
+              <div className={styles.reviewsBox}>
+                {product.reviews.map((item, ind) => {
+                  const fullStarNo = Math.floor(item.rating)
+                  const emptyStarNo = 5 - fullStarNo
+                  return (
+                    <div className={styles.review}>
+                      <div className={styles.userDetails}>
+                        <h4>{item.user_name}</h4>
+                        {item.verified && <span>Verified</span>}
+                      </div>
+                      <div>
+                        {[...Array(fullStarNo)].map((item, ind) => <FullStar />)}
+                        {[...Array(emptyStarNo)].map((item, ind) => <EmptyStar />)}
+                      </div>
+                      <p className={styles.reviewText}>{item.review_text}</p>
                     </div>
-                    <div>
-                      {[...Array(fullStarNo)].map((item, ind) => <FullStar />)}
-                      {[...Array(emptyStarNo)].map((item, ind) => <EmptyStar />)}
-                    </div>
-                    <p className={styles.reviewText}>{item.review_text}</p>
-                  </div>
-                )
-              })}
+                  )
+                })}
+                {(product.reviews.length === 0) && <h3 style={{ color: "#40e0d0", fontWeight: 400 }}>No reviews for this product yet. Why don't you create one?</h3>}
+              </div>
             </div>
-          </div>
-          <div className={styles.recommendedCont}>
-            <h1>Recommended Products</h1>
-            <div className={styles.recommendedGallery}>
-              {recommendedProducts.map((item, ind) => {
-                return (
-                  <ProductTile product={item} />
-                )
-              })}
+            <div className={styles.recommendedCont}>
+              <h1>Recommended Products</h1>
+              <div className={styles.recommendedGallery}>
+                {recommendedProducts.map((item, ind) => {
+                  return (
+                    <ProductTile product={item} />
+                  )
+                })}
+              </div>
             </div>
-          </div>
-        </>
-      )}
-    </div>
+          </>
+        )}
+        {!product && <LoadingSpinner />}
+      </div>
+    </>
   )
 }
 

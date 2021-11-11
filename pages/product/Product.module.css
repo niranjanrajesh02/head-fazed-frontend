@@ -146,6 +146,7 @@
 .recommendedCont {
   text-align: center;
   margin-bottom: 2rem;
+  border-top: 1px solid #40e0d0;
 }
 
 .recommendedGallery {

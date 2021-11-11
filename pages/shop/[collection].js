@@ -10,13 +10,11 @@ import Gallery from '@components/Gallery/Gallery'
 import { useRouter } from 'next/router'
 import Navbar from '@components/Navbar/Navbar'
 import axios from 'axios'
-
 import LoadingSpinner from '@components/LoadingSpinner'
 
 const Collection = () => {
   const router = useRouter()
   const { collection } = router.query
-
   const [sortDropdown, setSortDropdown] = useState(false)
   const [filterView, setFilterView] = useState(false)
   const [sortView, setSortView] = useState(false);
