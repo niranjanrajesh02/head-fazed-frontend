@@ -24,7 +24,8 @@ function UserWrapper({ children }) {
             setUserDB({
               name: response.data.username,
               email: response.data.email,
-              cartItems: response.data.cart.products.length,
+              cart_items: response.data.cart.products.length,
+              user_id: response.data._id
             })
           })
           .catch(function (error) {

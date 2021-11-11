@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { useRouter } from 'next/router'
 import styles from './Product.module.css'
 import { BackArrow, Cross, EmptyStar, FullStar } from '@components/icons'
@@ -7,6 +7,8 @@ import ProductTile from '@components/ProductTile/ProductTile';
 import Navbar from '@components/Navbar/Navbar';
 import axios from 'axios';
 import LoadingSpinner from '@components/LoadingSpinner';
+import { UserContext } from 'HOC/UserContext';
+import Router from 'next/router'
 
 const recommendedProducts = [
   {
@@ -44,17 +46,19 @@ const recommendedProducts = [
   }
 ]
 
-const average = arr => arr.reduce((p, c) => p + c, 0) / arr.length;
+
 
 const Product = () => {
   const [product, setProduct] = useState(null);
-  const fullStarNo = (product?.ratings?.length > 0) ? Math.round(average(product.ratings)) : 0
+  const fullStarNo = (product?.avg_rating) ? Math.round(product.avg_rating) : 0
   const emptyStarNo = 5 - fullStarNo
   const [recommended, setRecommended] = useState(null);
   const [reviewModal, setReviewModal] = useState(false);
   const [reviewStars, setReviewStars] = useState(0);
   const [reviewTitle, setReviewTitle] = useState("");
   const [reviewBody, setReviewBody] = useState("");
+  const { userDB, setUserDB } = useContext(UserContext)
+  console.log(userDB);
   const router = useRouter()
   const { pid } = router.query
   useEffect(() => {
@@ -69,7 +73,7 @@ const Product = () => {
 
       axios(config)
         .then(function (response) {
-          // console.log((response.data));
+          console.log((response.data));
           setProduct(response.data)
         })
         .catch(function (error) {
@@ -89,9 +93,9 @@ const Product = () => {
     var data = JSON.stringify({
       "reviewTitle": reviewTitle,
       "reviewText": reviewBody,
-      "userId": "618be99d4de193ce092291b9",
+      "userId": userDB.user_id,
       "productId": product._id,
-      "userName": "Joseph Ross",
+      "userName": userDB.name,
       "rating": reviewStars
     });
 
@@ -108,6 +112,7 @@ const Product = () => {
       .then(function (response) {
         console.log((response.data));
         //TODO reload
+        Router.reload(window.location.pathname)
       })
       .catch(function (error) {
         console.log(error);

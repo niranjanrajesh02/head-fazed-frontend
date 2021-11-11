@@ -11,6 +11,7 @@ import { useRouter } from 'next/router'
 import Navbar from '@components/Navbar/Navbar'
 import axios from 'axios'
 import LoadingSpinner from '@components/LoadingSpinner'
+import getSortedProducts from 'functions/getSortedProducts'
 
 const Collection = () => {
   const router = useRouter()
@@ -19,6 +20,10 @@ const Collection = () => {
   const [filterView, setFilterView] = useState(false)
   const [sortView, setSortView] = useState(false);
   const [products, setProducts] = useState(null);
+  const [sortOption, setSortOption] = useState(-1);
+  const [minPriceFilter, setMinPriceFilter] = useState(null);
+  const [maxPriceFilter, setMaxPriceFilter] = useState(null);
+  const [starFilter, setStarFilter] = useState(null);
   const isMobile = useMediaQuery({ maxWidth: '1024px' })
   useEffect(() => {
     if (collection) {
@@ -59,6 +64,40 @@ const Collection = () => {
       }
     }
   }, [collection])
+
+  useEffect(() => {
+    setSortDropdown(false);
+    if (collection === "All") {
+      let config = {
+        method: 'get',
+        url: `/products?sort=${sortOption}`,
+      };
+      axios(config)
+        .then(function (response) {
+          console.log((response.data));
+          setProducts(response.data)
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    } else {
+      let config = {
+        method: 'get',
+        url: `/products/collection/${collection.toLowerCase()}?sort=${sortOption}`,
+      };
+      axios(config)
+        .then(function (response) {
+          console.log((response.data));
+          setProducts(response.data)
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
+
+
+  }, [sortOption])
+
   return (
     <>
       <Navbar />
@@ -78,7 +117,7 @@ const Collection = () => {
                       {!sortDropdown && <ChevronDown />}
                       {sortDropdown && <ChevronUp />}
                     </div>
-                    {sortDropdown && <SortDropdown />}
+                    {sortDropdown && <SortDropdown setSortOption={setSortOption} />}
                   </div>
                 </div>
                 <div className={styles.shopBody}>

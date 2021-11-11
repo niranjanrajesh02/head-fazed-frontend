@@ -5,12 +5,12 @@ import { EmptyStar, FullStar } from '@components/icons'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 
-const average = arr => arr.reduce((p, c) => p + c, 0) / arr.length;
+
 
 
 const ProductTile = ({ product, ind }) => {
   console.log(product);
-  const fullStarNo = (product?.ratings?.length > 0) ? Math.round(average(product.ratings)) : 0
+  const fullStarNo = (product?.avg_rating) ? Math.round((product.avg_rating)) : 0
   const emptyStarNo = 5 - fullStarNo
   const router = useRouter()
   const isShop = router.pathname.includes("shop")
