@@ -9,7 +9,7 @@ const average = arr => arr.reduce((p, c) => p + c, 0) / arr.length;
 
 
 const ProductTile = ({ product, ind }) => {
-  const fullStarNo = (product.ratings && product.ratings > 0) ? average(product.ratings) : 0;
+  const fullStarNo = product.ratings ? Math.round(average(product.ratings)) : 0
   const emptyStarNo = 5 - fullStarNo
   const router = useRouter()
   const isShop = router.pathname.includes("shop")

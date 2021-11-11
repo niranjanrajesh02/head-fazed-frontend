@@ -77,10 +77,7 @@ const average = arr => arr.reduce((p, c) => p + c, 0) / arr.length;
 
 const Product = () => {
   const [product, setProduct] = useState(null);
-  let fullStarNo = 0;
-  if (product && product.ratings.length > 0) {
-    fullStarNo = Math.floor(average(product.ratings))
-  }
+  let fullStarNo = product ? Math.round(average(product.ratings)) : 0;
   const emptyStarNo = 5 - fullStarNo
   const [recommended, setRecommended] = useState(null);
   const [reviewModal, setReviewModal] = useState(false);
@@ -115,16 +112,7 @@ const Product = () => {
   const images = [];
 
   product?.images.forEach((item) => images.push({ original: item }))
-  function createReviewStars() {
-    let fullStars = reviewStars;
-    let emptyStars = 5 - reviewStars;
-    return (
-      <div>
-        {[...Array(fullStars)].map((item, ind) => <a onClick={() => setReviewStars(ind + 1)}><FullStar /></a>)}
-        {[...Array(emptyStars)].map((item, ind) => <a onClick={() => setReviewStars(ind + 1)}><EmptyStar /></a>)}
-      </div>
-    )
-  }
+
   function submitReviewHandler() {
     //TODO set up context for user id and user name
     var data = JSON.stringify({

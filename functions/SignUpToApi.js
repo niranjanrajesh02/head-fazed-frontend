@@ -74,13 +74,13 @@ function findUser(user) {
   console.log(user);
   let config = {
     method: 'get',
-    url: `/users/find?emailID=${user.email}`,
+    url: `/users/${user.email}`,
   };
   axios(config)
     .then(function (response) {
       console.log(response.data);
       //adds user to DB if this is first time sign up
-      if (response.data === false) {
+      if (!response.data) {
         registerUser(user)
       }
     })
