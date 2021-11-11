@@ -61,7 +61,7 @@ function registerUser(user) {
   };
   axios(config2)
     .then(function (response) {
-      console.log((response.data));
+      // console.log((response.data));
       createWishlist(response.data._id);
       createCart(response.data._id)
     })

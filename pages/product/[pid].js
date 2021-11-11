@@ -8,35 +8,6 @@ import Navbar from '@components/Navbar/Navbar';
 import axios from 'axios';
 import LoadingSpinner from '@components/LoadingSpinner';
 
-const testProduct = {
-  id: 1,
-  name: "AKG - K72",
-  price: 3299,
-  short_desc: "Very small short desc for K72",
-  description: "The new AKG K72 are over-ears, closed-back headphones that provide you the perfect combination of sound quality and comfort. Fitted with a powerful 40mm driver unit the K72 delivers solid bass, with well-defined mids and clear highs. What you get is a perfect unparalleled audio experience. The cable runs 3m long, making these perfect for all your studio applications. It aims at delivering an extended frequency response that reveals every detail of your music.",
-  images: ["https://cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-AKG-K72-3_800x.jpg?v=1622269593", "https://cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-AKG-K72-2_800x.jpg?v=1622269604", "https://cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-AKG-K72-4_2000x.jpg?v=1622269608", "https://cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-AKG-K72-6_800x.jpg?v=1622269617"],
-  seller: "AKG",
-  avg_rating: 4.1,
-  reviews: [
-    {
-      user_name: "Bob Ross",
-      rating: 4,
-      review_text: "The best pair of headphones I have ever worn in my life.",
-      verified: true
-    },
-    {
-      user_name: "Jack Ma",
-      rating: 5,
-      review_text: "Yummy"
-    },
-    {
-      user_name: "Donald Trump",
-      rating: 1,
-      review_text: "Sorry losers and haters, but my I.Q. is one of the highest -and you all know it! Please don’t feel so stupid or insecure,it’s not your fault. Heheheheheheheh."
-    },
-  ],
-  categories: ["Over Ear", "Audiophile", "Wired"]
-}
 const recommendedProducts = [
   {
     id: 1,
@@ -77,7 +48,7 @@ const average = arr => arr.reduce((p, c) => p + c, 0) / arr.length;
 
 const Product = () => {
   const [product, setProduct] = useState(null);
-  let fullStarNo = product ? Math.round(average(product.ratings)) : 0;
+  const fullStarNo = (product?.ratings?.length > 0) ? Math.round(average(product.ratings)) : 0
   const emptyStarNo = 5 - fullStarNo
   const [recommended, setRecommended] = useState(null);
   const [reviewModal, setReviewModal] = useState(false);
@@ -98,7 +69,7 @@ const Product = () => {
 
       axios(config)
         .then(function (response) {
-          console.log((response.data));
+          // console.log((response.data));
           setProduct(response.data)
         })
         .catch(function (error) {
