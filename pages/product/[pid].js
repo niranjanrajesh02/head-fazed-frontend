@@ -85,6 +85,8 @@ const Product = () => {
   const [recommended, setRecommended] = useState(null);
   const [reviewModal, setReviewModal] = useState(false);
   const [reviewStars, setReviewStars] = useState(0);
+  const [reviewTitle, setReviewTitle] = useState("");
+  const [reviewBody, setReviewBody] = useState("");
   const router = useRouter()
   const { pid } = router.query
   useEffect(() => {
@@ -122,6 +124,35 @@ const Product = () => {
         {[...Array(emptyStars)].map((item, ind) => <a onClick={() => setReviewStars(ind + 1)}><EmptyStar /></a>)}
       </div>
     )
+  }
+  function submitReviewHandler() {
+    //TODO set up context for user id and user name
+    var data = JSON.stringify({
+      "reviewTitle": reviewTitle,
+      "reviewText": reviewBody,
+      "userId": "618be99d4de193ce092291b9",
+      "productId": product._id,
+      "userName": "Joseph Ross",
+      "rating": reviewStars
+    });
+
+    var config = {
+      method: 'post',
+      url: 'reviews',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      data: data
+    };
+
+    axios(config)
+      .then(function (response) {
+        console.log((response.data));
+        //TODO reload
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
   return (
@@ -163,14 +194,17 @@ const Product = () => {
                     <h1>Write your review for {product.name}</h1>
                   </div>
                   <div className={styles.createFields}>
-                    <input type="text" placeholder="Review Title" />
-                    <textarea rows={10} placeholder="Review Body" />
+                    <input type="text" placeholder="Review Title" onChange={(e) => setReviewTitle(e.target.value)} />
+                    <textarea rows={10} placeholder="Review Body" onChange={(e) => setReviewBody(e.target.value)} />
                   </div>
                   <div className={styles.createStars}>
                     {/* {createReviewStars()} */}
                     <h4>Stars</h4>
-                    <input type="number" min={1} max={5}></input>
+                    <input type="number" min={1} max={5} onChange={(e) => setReviewStars(e.target.value)}></input>
                   </div>
+                  <button className={styles.reviewBtn} onClick={submitReviewHandler}>
+                    Submit Review
+                  </button>
                 </div>
               )}
               {!reviewModal && (
