@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import styles from './Product.module.css'
-import { EmptyStar, FullStar } from '@components/icons'
+import { BackArrow, Cross, EmptyStar, FullStar } from '@components/icons'
 import ImageGallery from 'react-image-gallery';
 import ProductTile from '@components/ProductTile/ProductTile';
 import Navbar from '@components/Navbar/Navbar';
@@ -83,6 +83,8 @@ const Product = () => {
   }
   const emptyStarNo = 5 - fullStarNo
   const [recommended, setRecommended] = useState(null);
+  const [reviewModal, setReviewModal] = useState(false);
+  const [reviewStars, setReviewStars] = useState(0);
   const router = useRouter()
   const { pid } = router.query
   useEffect(() => {
@@ -111,7 +113,16 @@ const Product = () => {
   const images = [];
 
   product?.images.forEach((item) => images.push({ original: item }))
-
+  function createReviewStars() {
+    let fullStars = reviewStars;
+    let emptyStars = 5 - reviewStars;
+    return (
+      <div>
+        {[...Array(fullStars)].map((item, ind) => <a onClick={() => setReviewStars(ind + 1)}><FullStar /></a>)}
+        {[...Array(emptyStars)].map((item, ind) => <a onClick={() => setReviewStars(ind + 1)}><EmptyStar /></a>)}
+      </div>
+    )
+  }
 
   return (
     <>
@@ -145,36 +156,64 @@ const Product = () => {
               </div>
             </div>
             <div className={styles.reviewsCont}>
-              <div className={styles.reviewTitleCont}>
-                <h1>Reviews for {product.name}</h1>
-              </div>
-              <div className={styles.ratingsBox}>
-                <div>
-                  {[...Array(fullStarNo)].map((item, ind) => <FullStar />)}
-                  {[...Array(emptyStarNo)].map((item, ind) => <EmptyStar />)}
+              {reviewModal && (
+                <div className={styles.createReviewCont}>
+                  <div className={styles.createTitle}>
+                    <a onClick={() => setReviewModal(false)}><BackArrow /></a>
+                    <h1>Write your review for {product.name}</h1>
+                  </div>
+                  <div className={styles.createFields}>
+                    <input type="text" placeholder="Review Title" />
+                    <textarea rows={10} placeholder="Review Body" />
+                  </div>
+                  <div className={styles.createStars}>
+                    {/* {createReviewStars()} */}
+                    <h4>Stars</h4>
+                    <input type="number" min={1} max={5}></input>
+                  </div>
                 </div>
-                <p>Based on {product.reviews.length} reviews</p>
-              </div>
-              <div className={styles.reviewsBox}>
-                {product.reviews.map((item, ind) => {
-                  const fullStarNo = Math.floor(item.rating)
-                  const emptyStarNo = 5 - fullStarNo
-                  return (
-                    <div className={styles.review}>
-                      <div className={styles.userDetails}>
-                        <h4>{item.user_name}</h4>
-                        {item.verified && <span>Verified</span>}
-                      </div>
-                      <div>
-                        {[...Array(fullStarNo)].map((item, ind) => <FullStar />)}
-                        {[...Array(emptyStarNo)].map((item, ind) => <EmptyStar />)}
-                      </div>
-                      <p className={styles.reviewText}>{item.review_text}</p>
+              )}
+              {!reviewModal && (
+                <>
+                  <div className={styles.reviewTitleCont}>
+                    <h1>Reviews for {product.name}</h1>
+                  </div>
+                  <div>
+                    <button className={styles.reviewBtn} onClick={() => setReviewModal(true)}>
+                      Write a Review
+                    </button>
+                  </div>
+                  <div className={styles.ratingsBox}>
+                    <div>
+                      {[...Array(fullStarNo)].map((item, ind) => <FullStar />)}
+                      {[...Array(emptyStarNo)].map((item, ind) => <EmptyStar />)}
                     </div>
-                  )
-                })}
-                {(product.reviews.length === 0) && <h3 style={{ color: "#40e0d0", fontWeight: 400 }}>No reviews for this product yet. Why don't you create one?</h3>}
-              </div>
+                    <p>Based on {product.reviews.length} reviews</p>
+                  </div>
+                  <div className={styles.reviewsBox}>
+                    {product.reviews.map((item, ind) => {
+                      const fullStarNoSingle = (item.rating > 0) ? (item.rating) : 0
+                      const emptyStarNoSingle = 5 - fullStarNoSingle
+                      return (
+                        <div className={styles.review}>
+                          <h3>{item.reviewTitle}</h3>
+                          <p className={styles.reviewText}>{item.reviewText}</p>
+                          <div>
+                            {[...Array(fullStarNoSingle)].map((item, ind) => <FullStar />)}
+                            {[...Array(emptyStarNoSingle)].map((item, ind) => <EmptyStar />)}
+                          </div>
+                          <div className={styles.userDetails}>
+                            <h4>- {item.userName}</h4>
+                            {item.verified && <span>Verified</span>}
+                          </div>
+                        </div>
+                      )
+                    })}
+                    {(product.reviews.length === 0) && <h3 style={{ color: "#40e0d0", fontWeight: 400 }}>No reviews for this product yet. Why don't you create one?</h3>}
+                  </div>
+                </>
+              )}
+
             </div>
             <div className={styles.recommendedCont}>
               <h1>Recommended Products</h1>

@@ -117,6 +117,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* background: red; */
+  width: 100%;
 }
 .review {
   /* background: red; */
@@ -126,12 +128,35 @@
   width: 60%;
   border-radius: 10px;
 }
+.reviewBtn {
+  width: 8rem;
+  background: #40e0d0;
+  outline: none;
+  height: 2rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  transition-timing-function: ease-in;
+  margin-bottom: 1rem;
+}
+
+.reviewBtn:hover {
+  background: white;
+  color: black;
+}
+
+.review h3 {
+  margin: 0;
+  text-align: center;
+  max-width: fit-content;
+  border-bottom: 1px solid #fff;
+}
 .userDetails {
   /* background: green; */
   display: flex;
   align-items: center;
   width: fit-content;
-  gap: 1rem;
 }
 
 .userDetails span {
@@ -141,6 +166,7 @@
 }
 .reviewText {
   margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .recommendedCont {
@@ -154,4 +180,91 @@
   width: 100%;
   justify-content: space-around;
   flex-wrap: wrap;
+}
+.createReviewCont {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.createTitle {
+  display: flex;
+  /* background: red; */
+  align-items: center;
+  /* justify-content: center; */
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.createTitle a {
+  justify-self: start;
+  cursor: pointer;
+}
+.createTitle h1 {
+  width: 100%;
+  text-align: center;
+}
+
+.createFields {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  /* background: green; */
+  align-items: center;
+}
+
+.createFields input {
+  margin: 0;
+  border-radius: 0.5rem;
+  padding: 0.8rem;
+  background: #000;
+  border: none;
+  height: 2.5rem;
+  outline: none;
+  color: white;
+  border-width: 1rem;
+  border: 1px solid #40e0d0;
+  width: 18rem;
+}
+.createFields textarea {
+  margin: 0;
+  border-radius: 0.5rem;
+  padding: 0.8rem;
+  background: #000;
+  border: none;
+  outline: none;
+  color: white;
+  border-width: 1rem;
+  border: 1px solid #40e0d0;
+  width: 60%;
+}
+.createStars {
+  /* background: red; */
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.createStars a {
+  cursor: pointer;
+
+  background: red;
+  width: 10rem;
+  gap: 2rem;
+}
+
+.createStars input {
+  margin: 0;
+  border-radius: 0.5rem;
+  padding: 0.8rem;
+  background: #000;
+  border: none;
+  height: 2.5rem;
+  outline: none;
+  color: white;
+  border-width: 1rem;
+  border: 1px solid #40e0d0;
+  width: 6rem;
 }
