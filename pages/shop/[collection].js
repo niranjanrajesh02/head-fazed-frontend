@@ -11,7 +11,6 @@ import { useRouter } from 'next/router'
 import Navbar from '@components/Navbar/Navbar'
 import axios from 'axios'
 import LoadingSpinner from '@components/LoadingSpinner'
-import getSortedProducts from 'functions/getSortedProducts'
 
 const Collection = () => {
   const router = useRouter()

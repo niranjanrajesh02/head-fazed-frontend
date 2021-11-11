@@ -7,8 +7,8 @@ import ProductTile from '@components/ProductTile/ProductTile';
 import Navbar from '@components/Navbar/Navbar';
 import axios from 'axios';
 import LoadingSpinner from '@components/LoadingSpinner';
-import { UserContext } from 'HOC/UserContext';
-import Router from 'next/router'
+import { UserContext } from '../../HOC/UserContext';
+
 
 const recommendedProducts = [
   {
@@ -58,7 +58,7 @@ const Product = () => {
   const [reviewTitle, setReviewTitle] = useState("");
   const [reviewBody, setReviewBody] = useState("");
   const { userDB, setUserDB } = useContext(UserContext)
-  console.log(userDB);
+  // console.log(userDB);
   const router = useRouter()
   const { pid } = router.query
   useEffect(() => {
@@ -84,9 +84,37 @@ const Product = () => {
     // setProduct(testProduct)
     // setRecommended(recommendedProducts)
   }, [pid])
-  const images = [];
 
+  const images = [];
   product?.images.forEach((item) => images.push({ original: item }))
+
+  function addToCart() {
+    let data = JSON.stringify({
+      "u_id": userDB.user_id,
+      "product_id": product._id,
+      "action": "cQuantity",
+      "quantity": 1
+    });
+
+    let config = {
+      method: 'patch',
+      url: '/cart',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      data: data
+    };
+
+    axios(config)
+      .then(function (response) {
+        console.log((response.data));
+        router.push("/cart", null, { shallow: false })
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+  }
 
   function submitReviewHandler() {
     //TODO set up context for user id and user name
@@ -143,7 +171,7 @@ const Product = () => {
                 </div>
                 <div className={styles.purchaseCont}>
                   <h2>₹{product.price}</h2>
-                  <button className={styles.cartBtn}>Add to Cart</button>
+                  <button className={styles.cartBtn} onClick={addToCart}>Add to Cart</button>
                 </div>
                 <div className={styles.descCont}>
                   <p>{product.long_description}</p>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import styles from "./Navbar.module.css"
 import Image from "next/image"
 import Dropdown from './Dropdown';
@@ -6,6 +6,7 @@ import { useMediaQuery } from 'react-responsive';
 import { BackArrow, Cart, CartSmall, Cross, Menu, RightArrow, User, UserIcon } from '@components/icons';
 import { useUser } from '@auth0/nextjs-auth0';
 import Link from 'next/link';
+import { UserContext } from 'HOC/UserContext';
 
 const Navbar = () => {
   const [brandsDropdown, setBrandsDropdown] = useState(false);
@@ -14,7 +15,9 @@ const Navbar = () => {
   const [accessoryDropdown, setAccessoryDropdown] = useState(false);
   const [secondaryDisplay, setSecondaryDisplay] = useState(false)
   const [tertiaryDisplay, setTertiaryDisplay] = useState(null)
+  const [cartItems, setCartItems] = useState(0);
   const isMobile = useMediaQuery({ maxWidth: '1024px' })
+  const { userDB } = useContext(UserContext)
   const { user, error, isLoading } = useUser();
   const onMouseEnter = (menu) => {
     if (menu === "brands") {
@@ -46,6 +49,11 @@ const Navbar = () => {
     }
   };
 
+  useEffect(() => {
+    if (userDB) {
+      setCartItems(userDB.cart_items)
+    }
+  }, [userDB])
   const largeNavbar = (
     <div className={styles.navbarContainer}>
       <div className={styles.menuCategories} >
@@ -83,7 +91,10 @@ const Navbar = () => {
             </div>
             <div>
               <Link href="/cart">
-                <a><CartSmall /></a>
+                <div className={styles.cartCont}>
+                  <a><CartSmall /></a>
+                  <p>{cartItems}</p>
+                </div>
               </Link>
             </div>
           </>

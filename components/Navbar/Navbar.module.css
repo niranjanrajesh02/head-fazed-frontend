@@ -64,7 +64,7 @@
   width: 18rem;
 }
 
-.rightContainer a:hover {
+.rightContainer div:hover {
   color: #40e0d0;
 }
 .rightContainer div {
@@ -174,4 +174,10 @@
   width: 60%;
   justify-content: space-evenly;
   align-self: center;
+}
+
+.cartCont {
+  /* background: red; */
+  display: flex;
+  gap: 0.5rem;
 }

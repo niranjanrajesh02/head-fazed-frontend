@@ -83,6 +83,10 @@ function findUser(user) {
       if (!response.data) {
         registerUser(user)
       }
+      else {
+        console.log("user already exists in db");
+        return
+      }
     })
     .catch(function (error) {
       console.log(error);
