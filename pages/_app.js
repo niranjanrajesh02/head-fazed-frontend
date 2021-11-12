@@ -6,12 +6,12 @@ import UserWrapper from 'HOC/UserWrapper';
 
 function MyApp({ Component, pageProps }) {
   axios.defaults.baseURL = 'http://localhost:4000';
-  
+
   return (
     <UserProvider>
       <UserWrapper>
         <Component {...pageProps} />
-      </UserWrapper> 
+      </UserWrapper>
     </UserProvider>
   )
 }
