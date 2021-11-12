@@ -153,16 +153,17 @@
   border-bottom: 1px solid #fff;
 }
 .userDetails {
-  /* background: green; */
   display: flex;
   align-items: center;
   width: fit-content;
+  gap: 0.4rem;
 }
 
 .userDetails span {
   background: #40e0d0;
   padding: 0.2rem;
   font-size: small;
+  /* border-radius: px; */
 }
 .reviewText {
   margin-top: 1rem;

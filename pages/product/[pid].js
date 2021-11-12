@@ -139,8 +139,8 @@ const Product = () => {
     axios(config)
       .then(function (response) {
         console.log((response.data));
-        //TODO reload
-        Router.reload(window.location.pathname)
+
+        router.reload(window.location.pathname)
       })
       .catch(function (error) {
         console.log(error);

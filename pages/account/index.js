@@ -59,6 +59,12 @@ const Account = () => {
                     <RightArrow />
                   </div>
                 </Link>
+                <Link href="/orders">
+                  <div className={styles.navButton}>
+                    <h2>Your Orders</h2>
+                    <RightArrow />
+                  </div>
+                </Link>
               </div>
             </div>
           </div>
