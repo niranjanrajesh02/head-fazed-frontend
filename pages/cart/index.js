@@ -9,13 +9,10 @@ import { useRouter } from 'next/router'
 
 const Cart = () => {
   const [cart, setCart] = useState(null);
-  const [updated, setUpdated] = useState(false);
   const { userDB } = useContext(UserContext)
   const router = useRouter();
 
-  function updateHandler() {
-    setUpdated(true);
-  }
+
 
   useEffect(() => {
     if (userDB) {
@@ -38,10 +35,36 @@ const Cart = () => {
     }
   }, [userDB])
 
+  function checkoutCart() {
+    let data = JSON.stringify({
+      "cart_id": cart._id,
+      "user_id": userDB.user_id
+    });
+
+    let config = {
+      method: 'post',
+      url: '/orders/checkout',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      data: data
+    };
+
+    axios(config)
+      .then(function (response) {
+        console.log((response.data));
+        router.push('/account')
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+  }
 
   return (
     <>
       {!cart && (<LoadingSpinner />)}
+
       {cart && (
         <>
           <Navbar />
@@ -49,23 +72,26 @@ const Cart = () => {
             <div className={styles.header}>
               <h1>Your Cart</h1>
             </div>
-            <div className={styles.cartContainer}>
-              <div className={styles.itemsContainer}>
-                {cart.products.map((item, ind) => (
-                  <CartItem product={item} updateHandler={updateHandler} user_id={userDB.user_id} setCart={setCart} />
-                ))}
+            {cart.products.length === 0 && (
+              <div className={styles.emptyContainer}>
+                <h2>Your Cart is Empty!</h2>
+                <button className={styles.checkoutBtn} onClick={() => router.push("/shop/all")}>Continue Shopping</button>
               </div>
-              <div className={styles.summaryContainer}>
-                {!updated && (
-                  <div>
-                    <h3>Total: ₹<span>{cart.total_val}</span></h3>
-                    <button className={styles.checkoutBtn}>Checkout</button>
-                    <button className={styles.continueBtn} onClick={() => Router.push("/shop/all")}>Continue Shopping</button>
-                  </div>
-                )}
-                {updated && <button className={styles.checkoutBtn}>Update Cart</button>}
+            )}
+            {cart.products.length > 0 && (
+              <div className={styles.cartContainer}>
+                <div className={styles.itemsContainer}>
+                  {cart.products.map((item, ind) => (
+                    <CartItem product={item} user_id={userDB.user_id} setCart={setCart} />
+                  ))}
+                </div>
+                <div className={styles.summaryContainer}>
+                  <h3>Total: ₹<span>{cart.total_val}</span></h3>
+                  <button className={styles.checkoutBtn} onClick={checkoutCart} >Checkout</button>
+                  <button className={styles.continueBtn} onClick={() => router.push("/shop/all")}>Continue Shopping</button>
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </>
       )}

@@ -91,3 +91,15 @@
   background: #40e0d0;
   color: white;
 }
+
+.emptyContainer {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media only screen and (max-width: 1024px) {
+  .emptyContainer {
+    width: 100%;
+  }
+}
