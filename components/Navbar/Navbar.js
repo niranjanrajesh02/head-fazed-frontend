@@ -7,6 +7,7 @@ import { BackArrow, Cart, CartSmall, Cross, Menu, RightArrow, User, UserIcon } f
 import { useUser } from '@auth0/nextjs-auth0';
 import Link from 'next/link';
 import { UserContext } from 'HOC/UserContext';
+import Searchbar from '@components/Searchbar/Searchbar';
 
 const Navbar = () => {
   const [brandsDropdown, setBrandsDropdown] = useState(false);
@@ -79,24 +80,25 @@ const Navbar = () => {
           <Image src="/images/MainLogo.png" width={110} height={110} />
         </Link>
       </div>
-      <div className={styles.searchBarContainer}>
-
-      </div>
       <div className={styles.rightContainer}>
-        <input type="text" placeholder="Search" />
+        <div>
+          <Searchbar />
+        </div>
         {user && (
           <>
-            <div>
-              <Link href="/account"><a><UserIcon /></a></Link>
-            </div>
-            <div>
-              <Link href="/cart">
-                <div className={styles.cartCont}>
-                  <a><CartSmall /></a>
-                  <p>{cartItems}</p>
-                </div>
-              </Link>
-            </div>
+
+            <Link href="/account">
+              <div className={styles.cartCont}>
+                <a><UserIcon /></a>
+              </div>
+            </Link>
+            <Link href="/cart">
+              <div className={styles.cartCont}>
+                <a><CartSmall /></a>
+                <p>{cartItems}</p>
+              </div>
+            </Link>
+
           </>
         )}
         {!user && (

@@ -4,7 +4,6 @@
   justify-content: space-between;
   align-items: center;
   /* background: red; */
-  margin-top: 1rem;
   width: 100%;
   padding: 0%;
 }
@@ -50,21 +49,8 @@
   width: 30%;
   /* background: limegreen; */
 }
-.rightContainer input {
-  margin: 0;
-  border-radius: 0.5rem;
-  padding: 0.8rem;
-  background: #000;
-  border: none;
-  height: 2.5rem;
-  outline: none;
-  color: white;
-  border-width: 1rem;
-  border: 1px solid #40e0d0;
-  width: 18rem;
-}
 
-.rightContainer div:hover {
+.rightContainer a:hover {
   color: #40e0d0;
 }
 .rightContainer div {
