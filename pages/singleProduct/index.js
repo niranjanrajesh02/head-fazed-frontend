@@ -7,7 +7,7 @@ const singleProduct = () => {
         <div className={styles.navbar}>
             <div className={styles.container1}>
                
-                <a href="#">Aryaman and <span>Riyoshas</span> single product page</a>
+                <a href="#">Aryaman single product page</a>
            
                 
 
@@ -23,6 +23,7 @@ const singleProduct = () => {
                 <h1><a href="#">Sony</a></h1>
             </div>
                 <div className={styles.ModelName}>
+        
                     <h1>Sony - WF-XB700</h1>
             </div>
                 <div className={styles.ProductType}>
@@ -56,24 +57,22 @@ const singleProduct = () => {
             </div>
 
             </section>
-
-
-        <section class = "testimonials.section">
+            <section class = "testimonials.section">
             <div className={styles.container}>
                 <ul>
                     <li>
                         <blockquote>these headphones are ass</blockquote>
-                        <cite>- Riyosha</cite>
+                        <cite>- Anuskee</cite>
 
                     </li>
                     <li>
-                        <blockquote>these headphones are ass</blockquote>
-                        <cite>- Riyosha</cite>
+                        <blockquote>these headphones are very ass</blockquote>
+                        <cite>- Eshie</cite>
 
                     </li>
                     <li>
-                        <blockquote>these headphones are ass</blockquote>
-                        <cite>- Riyosha</cite>
+                        <blockquote>these headphones are decent</blockquote>
+                        <cite>- Ansh</cite>
 
                     </li>
 
@@ -83,6 +82,7 @@ const singleProduct = () => {
 
             </div>
         </section>
+
         </div>
         
             
