@@ -2,7 +2,7 @@ import axios from 'axios'
 
 function createWishlist(u_id) {
   let data = JSON.stringify({
-    "u_id": u_id
+    "user_id": u_id
   });
 
   let config = {

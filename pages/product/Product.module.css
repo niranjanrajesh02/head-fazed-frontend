@@ -37,7 +37,7 @@
   /* align-items: center; */
   justify-content: space-between;
   /* background: red; */
-  width: 40%;
+  width: 65%;
   /* align-self: center; */
   margin-bottom: 2rem;
 }
@@ -61,6 +61,37 @@
 
 .cartBtn:hover {
   background: white;
+  color: black;
+}
+
+.wishlistBtn {
+  width: 8rem;
+  background: #fff;
+  outline: none;
+  height: 2rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  transition-timing-function: ease-in;
+}
+.wishlistBtn:hover {
+  background: #40e0d0;
+  color: black;
+}
+.removeBtn {
+  width: 10rem;
+  background: #fff;
+  outline: none;
+  height: 2rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  transition-timing-function: ease-in;
+}
+.removeBtn:hover {
+  background: crimson;
   color: black;
 }
 

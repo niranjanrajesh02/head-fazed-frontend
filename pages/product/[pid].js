@@ -124,7 +124,6 @@ const Product = () => {
       },
       data: data
     };
-
     axios(config)
       .then(function (response) {
         console.log((response.data));
@@ -133,9 +132,57 @@ const Product = () => {
       .catch(function (error) {
         console.log(error);
       });
-
   }
 
+  function addToWishlist() {
+    var data = JSON.stringify({
+      "user_id": userDB.user_id,
+      "product_id": product._id
+    });
+
+    var config = {
+      method: 'patch',
+      url: '/wishlist',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      data: data
+    };
+
+    axios(config)
+      .then(function (response) {
+        console.log((response.data));
+        router.push("/wishlist", null, { shallow: false })
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+  }
+  function removeFromWishlist() {
+    var data = JSON.stringify({
+      "user_id": userDB.user_id,
+      "product_id": product._id
+    });
+
+    var config = {
+      method: 'patch',
+      url: '/wishlist/remove',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      data: data
+    };
+
+    axios(config)
+      .then(function (response) {
+        console.log((response.data));
+        router.push("/wishlist", null, { shallow: false })
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
   function submitReviewHandler() {
     //TODO set up context for user id and user name
     var data = JSON.stringify({
@@ -171,7 +218,7 @@ const Product = () => {
     <>
       <Navbar />
       <div className={styles.pageCont}>
-        {product && (
+        {(product && userDB) && (
           <>
             <div className={styles.mainDisplay}>
               <div className={styles.imgGallery}>
@@ -192,6 +239,8 @@ const Product = () => {
                 <div className={styles.purchaseCont}>
                   <h2>₹{product.price}</h2>
                   <button className={styles.cartBtn} onClick={addToCart}>Add to Cart</button>
+                  {product.wishlisted.includes(userDB.user_id) && <button className={styles.removeBtn} onClick={removeFromWishlist}>Remove from Wishlist</button>}
+                  {!product.wishlisted.includes(userDB.user_id) && <button className={styles.wishlistBtn} onClick={addToWishlist}>Add to Wishlist</button>}
                 </div>
                 <div className={styles.descCont}>
                   <p>{product.long_description}</p>
