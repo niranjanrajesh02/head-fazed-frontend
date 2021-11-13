@@ -94,7 +94,20 @@
   background: crimson;
   color: black;
 }
-
+.cartAnchor {
+  background: #40e0d0;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  height: 2rem;
+  padding: 0.5rem;
+  transition: background 0.2s, color 0.2s;
+  transition-timing-function: ease-in;
+}
+.cartAnchor:hover {
+  background: #fff;
+  color: black;
+}
 @media only screen and (max-width: 1024px) {
   .mainDisplay {
     flex-direction: column;

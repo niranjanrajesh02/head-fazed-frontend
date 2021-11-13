@@ -57,7 +57,8 @@ const Product = () => {
   const [reviewStars, setReviewStars] = useState(0);
   const [reviewTitle, setReviewTitle] = useState("");
   const [reviewBody, setReviewBody] = useState("");
-  const { userDB, setUserDB } = useContext(UserContext)
+  const { userDB } = useContext(UserContext)
+  const [cartUpdated, setCartUpdated] = useState(false);
   // console.log(userDB);
   const router = useRouter()
   const { pid } = router.query
@@ -105,6 +106,7 @@ const Product = () => {
     }
   }, [product])
 
+
   const images = [];
   product?.images.forEach((item) => images.push({ original: item }))
 
@@ -127,7 +129,9 @@ const Product = () => {
     axios(config)
       .then(function (response) {
         console.log((response.data));
-        router.push("/cart", null, { shallow: false })
+        // setReloaded(true);
+        // router.reload()
+        setCartUpdated(true);
       })
       .catch(function (error) {
         console.log(error);
@@ -238,7 +242,8 @@ const Product = () => {
                 </div>
                 <div className={styles.purchaseCont}>
                   <h2>₹{product.price}</h2>
-                  <button className={styles.cartBtn} onClick={addToCart}>Add to Cart</button>
+                  {!cartUpdated && <button className={styles.cartBtn} onClick={addToCart}>Add to Cart</button>}
+                  {cartUpdated && <a className={styles.cartAnchor} href="/cart">Go to Cart</a>}
                   {product.wishlisted.includes(userDB.user_id) && <button className={styles.removeBtn} onClick={removeFromWishlist}>Remove from Wishlist</button>}
                   {!product.wishlisted.includes(userDB.user_id) && <button className={styles.wishlistBtn} onClick={addToWishlist}>Add to Wishlist</button>}
                 </div>
