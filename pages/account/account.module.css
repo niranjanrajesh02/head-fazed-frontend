@@ -1,0 +1,145 @@
+.header {
+  background: #40e0d0;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+.pageCont {
+  display: flex;
+  flex-direction: column;
+}
+
+.logOutCont {
+  cursor: pointer;
+  align-self: flex-end;
+  width: 6rem;
+  text-align: center;
+  padding: 0.5rem;
+  border-radius: 1.3rem;
+  transition: background 0.2s;
+  transition-timing-function: ease-in;
+}
+
+.logOutCont:hover {
+  background: red;
+}
+
+.bodyCont {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 2rem;
+}
+
+.profileInfoSection {
+  border: 1px solid #40e0d0;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  text-align: center;
+  align-items: center;
+}
+
+.editButton {
+  cursor: pointer;
+  align-self: flex-end;
+}
+
+.profileInfoSection input {
+  margin: 0;
+  border-radius: 0.5rem;
+  padding: 0.8rem;
+  background: #000;
+  border: none;
+  height: 2.5rem;
+  outline: none;
+  color: white;
+  border-width: 1rem;
+  border: 1px solid #40e0d0;
+  width: 13rem;
+}
+
+.navButtonContainer {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+
+.navButton {
+  background: #40e0d0;
+  width: 60%;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: large;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  transition-timing-function: ease-in;
+}
+
+.navButton:hover {
+  background: white;
+  color: black;
+}
+
+@media only screen and (max-width: 1024px) {
+  .profileInfoSection {
+    width: 100%;
+  }
+  .bodyCont {
+    background: #000;
+    flex-direction: column;
+  }
+  .navButtonContainer {
+    margin-top: 2rem;
+    width: 100%;
+  }
+}
+
+.buttonCont {
+  display: flex;
+  /* background: red; */
+  gap: 1rem;
+}
+.submitButton {
+  margin-top: 2rem;
+  width: 4rem;
+  background: #40e0d0;
+  outline: none;
+  height: 2rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  transition-timing-function: ease-in;
+}
+
+.submitButton:hover {
+  background: white;
+  color: black;
+}
+
+.cancelButton {
+  margin-top: 2rem;
+  width: 4rem;
+  background: crimson;
+  outline: none;
+  height: 2rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  transition-timing-function: ease-in;
+}
+.cancelButton:hover {
+  background: white;
+  color: black;
+}

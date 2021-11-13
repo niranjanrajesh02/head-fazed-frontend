@@ -1,0 +1,320 @@
+.pageCont {
+  /* background: red; */
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+.mainDisplay {
+  display: flex;
+  width: 100%;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  gap: 5rem;
+  margin-bottom: 5rem;
+}
+
+.imgGallery {
+  /* background: red; */
+  width: 40%;
+}
+.textCont {
+  /* background: dodgerblue; */
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.ratingContainer {
+  display: flex;
+  border-bottom: 1px solid #40e0d0;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+.interestedCont {
+  /* background: red; */
+  margin-bottom: 1rem;
+}
+
+.purchaseCont {
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-between;
+  /* background: red; */
+  width: 65%;
+  /* align-self: center; */
+  margin-bottom: 2rem;
+}
+
+.purchaseCont h2 {
+  margin: 0;
+  padding: 0;
+}
+
+.cartBtn {
+  width: 8rem;
+  background: #40e0d0;
+  outline: none;
+  height: 2rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  transition-timing-function: ease-in;
+}
+
+.cartBtn:hover {
+  background: white;
+  color: black;
+}
+
+.wishlistBtn {
+  width: 8rem;
+  background: #fff;
+  outline: none;
+  height: 2rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  transition-timing-function: ease-in;
+}
+.wishlistBtn:hover {
+  background: #40e0d0;
+  color: black;
+}
+.removeBtn {
+  width: 10rem;
+  background: #fff;
+  outline: none;
+  height: 2rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  transition-timing-function: ease-in;
+}
+.removeBtn:hover {
+  background: crimson;
+  color: black;
+}
+.cartAnchor {
+  background: #40e0d0;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  height: 2rem;
+  padding: 0.5rem;
+  transition: background 0.2s, color 0.2s;
+  transition-timing-function: ease-in;
+}
+.cartAnchor:hover {
+  background: #fff;
+  color: black;
+}
+
+@media only screen and (max-width: 1024px) {
+  .mainDisplay {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .imgGallery {
+    width: 100%;
+  }
+  .textCont {
+    /* background: red; */
+    max-width: 100%;
+  }
+  .purchaseCont {
+    width: 100%;
+  }
+  .cartBtn {
+    width: 5rem;
+  }
+  .descCont {
+    max-height: 10rem;
+    line-height: 2rem;
+    font-size: small;
+    overflow-y: scroll;
+  }
+}
+
+.reviewsCont {
+  /* background: red; */
+  border-top: 1px solid #40e0d0;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  /* max-height: 120vh; */
+  /* overflow-y: auto; */
+}
+
+.reviewTitleCont {
+  text-align: center;
+}
+.ratingsBox {
+  /* background: blue; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.reviewsBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* background: red; */
+  width: 100%;
+}
+.review {
+  /* background: red; */
+  border: 1px solid #40e0d0;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  width: 60%;
+  border-radius: 10px;
+}
+.reviewBtn {
+  width: 8rem;
+  background: #40e0d0;
+  outline: none;
+  height: 2rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  transition-timing-function: ease-in;
+  margin-bottom: 1rem;
+}
+
+.reviewBtn:hover {
+  background: white;
+  color: black;
+}
+
+.review h3 {
+  margin: 0;
+  text-align: center;
+  max-width: fit-content;
+  border-bottom: 1px solid #fff;
+}
+.userDetails {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  gap: 0.4rem;
+}
+
+.userDetails span {
+  background: #40e0d0;
+  padding: 0.2rem;
+  font-size: small;
+  /* border-radius: px; */
+}
+.reviewText {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.recommendedCont {
+  text-align: center;
+  margin-bottom: 2rem;
+  border-top: 1px solid #40e0d0;
+}
+
+.recommendedGallery {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.createReviewCont {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.createTitle {
+  display: flex;
+  /* background: red; */
+  align-items: center;
+  /* justify-content: center; */
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.createTitle a {
+  justify-self: start;
+  cursor: pointer;
+}
+.createTitle h1 {
+  width: 100%;
+  text-align: center;
+}
+
+.createFields {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  /* background: green; */
+  align-items: center;
+}
+
+.createFields input {
+  margin: 0;
+  border-radius: 0.5rem;
+  padding: 0.8rem;
+  background: #000;
+  border: none;
+  height: 2.5rem;
+  outline: none;
+  color: white;
+  border-width: 1rem;
+  border: 1px solid #40e0d0;
+  width: 18rem;
+}
+.createFields textarea {
+  margin: 0;
+  border-radius: 0.5rem;
+  padding: 0.8rem;
+  background: #000;
+  border: none;
+  outline: none;
+  color: white;
+  border-width: 1rem;
+  border: 1px solid #40e0d0;
+  width: 60%;
+}
+.createStars {
+  /* background: red; */
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.createStars a {
+  cursor: pointer;
+
+  background: red;
+  width: 10rem;
+  gap: 2rem;
+}
+
+.createStars input {
+  margin: 0;
+  border-radius: 0.5rem;
+  padding: 0.8rem;
+  background: #000;
+  border: none;
+  height: 2.5rem;
+  outline: none;
+  color: white;
+  border-width: 1rem;
+  border: 1px solid #40e0d0;
+  width: 6rem;
+}

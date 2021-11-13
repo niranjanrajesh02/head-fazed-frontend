@@ -1,0 +1,118 @@
+.dropdownMenu {
+  background: rgb(24, 23, 23);
+  text-align: center;
+  margin: 0;
+  font-size: 0.9rem;
+  -webkit-animation: slide-in-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: slide-in-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  width: 100%;
+}
+
+.filterSectionMob {
+  /* background: #000; */
+  display: flex;
+  flex-direction: column;
+}
+
+.priceSection {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  /* background: red; */
+}
+.minMaxCont {
+  display: flex;
+  align-items: center;
+  /* background: blue; */
+  gap: 0.8rem;
+}
+.minMaxCont input {
+  margin: 0;
+  border-radius: 0.5rem;
+  padding: 0.8rem;
+  background: #000;
+  border: none;
+  height: 2rem;
+  outline: none;
+  color: white;
+  border-width: 1rem;
+  border: 1px solid #40e0d0;
+  width: 5rem;
+}
+
+.priceSection button {
+  align-self: flex-end;
+  width: 6rem;
+  text-align: center;
+  padding: 0.5rem;
+  border-radius: 1.3rem;
+  transition: background 0.2s;
+  transition-timing-function: ease-in;
+  background: #40e0d0;
+}
+
+.dropdownMenu h4 {
+  color: #40e0d0;
+}
+
+.sortReviewSection {
+  /* background: red; */
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  /* background: blue; */
+  justify-content: center;
+  align-items: center;
+  gap: 0.24rem;
+}
+
+.starsRow {
+  display: flex;
+  /* background: red; */
+  width: 40%;
+  /* change jc to change pyramid layout */
+  justify-content: center;
+  align-items: center;
+}
+.starsRow p {
+  font-size: 20px;
+  /* margin-left: 1rem; */
+}
+
+@-webkit-keyframes slide-in-top {
+  0% {
+    -webkit-transform: translateY(-10px);
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-top {
+  0% {
+    -webkit-transform: translateY(-10px);
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.resetButton {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  background: crimson;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 10px;
+  min-width: 5rem;
+  text-align: center;
+  transition: background 0.2s, color 0.2s;
+  transition-timing-function: ease-in;
+}

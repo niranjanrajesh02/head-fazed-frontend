@@ -1,0 +1,15 @@
+.header {
+  background: #40e0d0;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  width: 100%;
+}
+.pageCont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

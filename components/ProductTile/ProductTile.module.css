@@ -1,0 +1,59 @@
+.tileContainer {
+  /* background: red; */
+  width: 15rem;
+  min-height: 20rem;
+  max-height: 25rem;
+  padding: 1rem;
+  align-items: center;
+  border-radius: 5px;
+  transition: background 0.2s, color 0.2s;
+  transition-timing-function: ease-in;
+  cursor: pointer;
+}
+
+.tileContainer:hover {
+  /* border: 1px solid white; */
+  background: white;
+  color: black;
+}
+
+.thumbnailContainer {
+  width: 95%;
+  display: block;
+}
+.textContainer {
+  margin-top: 1rem;
+  /* background: green; */
+  max-height: 6rem;
+  align-items: center;
+  width: 100%;
+  gap: 0.4rem;
+  text-align: center;
+}
+.title {
+  font-size: large;
+  /* margin: 0; */
+  margin-bottom: 0.4rem;
+}
+
+.shortDesc {
+  font-size: small;
+  margin-bottom: 0.2rem;
+}
+
+.price {
+  color: aqua;
+  /* font-size: large; */
+  font-weight: 600;
+}
+
+.ratingContainer {
+  margin-top: 1rem;
+  /* background: red; */
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+  font-size: small;
+  align-items: center;
+  text-align: center;
+}
