@@ -1,14 +1,27 @@
 .pageCont {
   /* background: red; */
   margin-top: 2rem;
-}
-
-.mainCarousel {
-  /* background: green;
-  height: 20rem; */
+  margin-bottom: 2rem;
+  text-align: center;
 }
 
 .imgCont {
   /* height: 15rem; */
   background: #40e0d0;
+  cursor: pointer;
+}
+
+.featuredGallery {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 1rem;
+  /* background: red; */
+
+  justify-content: space-around;
+}
+.adImgCont {
+  width: 20rem;
+  /* background: red; */
+  cursor: pointer;
 }
