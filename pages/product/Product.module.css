@@ -30,6 +30,8 @@
   border-bottom: 1px solid #40e0d0;
   padding-bottom: 0.5rem;
   margin-bottom: 1rem;
+  align-items: center;
+  gap: 0.4rem;
 }
 .interestedCont {
   /* background: red; */

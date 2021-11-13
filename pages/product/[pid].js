@@ -74,7 +74,7 @@ const Product = () => {
 
       axios(config)
         .then(function (response) {
-          console.log((response.data));
+          // console.log((response.data));
           setProduct(response.data)
 
 
@@ -97,7 +97,7 @@ const Product = () => {
 
       axios(config2)
         .then(function (response) {
-          console.log((response.data));
+          // console.log((response.data));
           setRecommended(response.data)
         })
         .catch(function (error) {

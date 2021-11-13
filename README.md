@@ -1,34 +1,45 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# CS-1202 E-Commerce Website - HeadFazed
 
-## Getting Started
+### By Aryaman, Madhav and Niranjan
 
-First, run the development server:
+Frontend repository: https://github.com/niranjanrajesh02/head-fazed-frontend
+Backend repository: https://github.com/niranjanrajesh02/head-fazed-backend
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## How to run HeadFazed
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. Clone both the backend and frontend repos into local machine
+2. Enter `npm install` in the terminal for **both of the directories**
+3. In the directory for the backend, enter `npm start` to initialise the server on `localhost:4000`
+4. In the directory for the frontend, enter `npm run dev` to initialise the front-end application on `localhost:3000`
+5. Now you should be able to use the frontend app from `localhost:3000` while it communicates with the server on `localhost:4000`
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+#### Aryaman: Backend Developer
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+- Implementation of Cart and Wishlist Documents and Routes
+- Added routes to wishlist a product (including calculations of interested users for a product)
+- Added routes to add product to cart
+- Implementation of Ratings and Review system with corresponding routes (including avg_rating calculations)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+#### Madhav: Frontend Developer
 
-## Learn More
+- Integrated shop pages and single product page to backend using axios
+- Feature to create reviews implemented
+- Sorting and filtering integrated with the backend
+- Landing Page components implemented
+- Recommended products connected
 
-To learn more about Next.js, take a look at the following resources:
+#### Niranjan: Fullstack Developer (Frontend + Backend)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+##### Backend
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Backend Initialisation of DB Models and Routes
+- Implementation of relations between Documents
+- Implementation of Product, User and Seller Models and Routes
+- Implementation of Recommendation Engine
 
-## Deploy on Vercel
+##### Frontend
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Initialised frontend using Next.js
+- Created components for Navbar, Shop Page, Product Pages and Filtering/Sorting, Account Page, Wishlist, Orders and Cart Pages (all are made to be responsive as well)
+- Added authentication (+social log in) using Auth-0 + Global User context
+- Search Products feature added

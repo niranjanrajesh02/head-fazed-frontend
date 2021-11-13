@@ -22,7 +22,7 @@ const Account = () => {
       };
       axios(config)
         .then(function (response) {
-          console.log((response.data));
+          // console.log((response.data));
           setNameField(response.data.username);
           setContactField(response.data.contact_no);
           setAddressField(response.data.shipping_add)
