@@ -2,7 +2,7 @@
 
 ### By Aryaman, Madhav and Niranjan
 
-Frontend repository: https://github.com/niranjanrajesh02/head-fazed-frontend
+Frontend repository: https://github.com/niranjanrajesh02/head-fazed-frontend  
 Backend repository: https://github.com/niranjanrajesh02/head-fazed-backend
 
 ## How to run HeadFazed
