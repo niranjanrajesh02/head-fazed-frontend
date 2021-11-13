@@ -240,6 +240,9 @@ const Product = () => {
                   </div>
                   <p>({product.reviews.length})</p>
                 </div>
+                <div className={styles.interestedCont}>
+                  <p> {product.wishlisted.length} {product.wishlisted.length === 1 ? "person is interested" : "people are interested"}</p>
+                </div>
                 <div className={styles.purchaseCont}>
                   <h2>₹{product.price}</h2>
                   {!cartUpdated && <button className={styles.cartBtn} onClick={addToCart}>Add to Cart</button>}
@@ -264,7 +267,7 @@ const Product = () => {
                     <textarea rows={10} placeholder="Review Body" onChange={(e) => setReviewBody(e.target.value)} />
                   </div>
                   <div className={styles.createStars}>
-                    {/* {createReviewStars()} */}
+
                     <h4>Stars</h4>
                     <input type="number" min={1} max={5} onChange={(e) => setReviewStars(e.target.value)}></input>
                   </div>

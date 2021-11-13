@@ -20,7 +20,7 @@ const ProductTile = ({ product, ind }) => {
           <Image src={product.images[0]} width={200} height={200} layout="responsive" />
         </div>
         <div className={styles.textContainer}>
-          <h2 className={styles.title}>{product.name}</h2>
+          <h2 className={styles.title}>{product.seller.name} {product.name}</h2>
           <p className={styles.shortDesc}>{product.short_description}</p>
           <p className={styles.price}>₹{product.price}</p>
         </div>

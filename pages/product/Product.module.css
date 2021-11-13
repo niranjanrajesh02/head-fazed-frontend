@@ -29,7 +29,11 @@
   display: flex;
   border-bottom: 1px solid #40e0d0;
   padding-bottom: 0.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+}
+.interestedCont {
+  /* background: red; */
+  margin-bottom: 1rem;
 }
 
 .purchaseCont {
@@ -108,6 +112,7 @@
   background: #fff;
   color: black;
 }
+
 @media only screen and (max-width: 1024px) {
   .mainDisplay {
     flex-direction: column;
