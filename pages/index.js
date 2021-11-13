@@ -165,7 +165,9 @@ const carouselImages = [
 ];
 const tileImages = [
   ["/images/JBLTile.png", "/product/618e789775d0f410531e7830"],
-  ["/images/RazerTile.png", "/product/618e5f1075d0f410531e7808"]
+  ["/images/RazerTile.png", "/product/618e5f1075d0f410531e7808"],
+  ["/images/SonyTile.png", "/product/618c4b817d71813b210357ae"],
+
 ]
 export default function Home() {
 

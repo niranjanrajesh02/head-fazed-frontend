@@ -63,7 +63,7 @@ const Product = () => {
   const router = useRouter()
   const { pid } = router.query
   useEffect(() => {
-    if (pid) {
+    if (pid && userDB) {
       let config = {
         method: 'get',
         url: `/products/find/${pid}`,
@@ -85,7 +85,7 @@ const Product = () => {
     }
 
 
-  }, [pid])
+  }, [pid, userDB])
 
   useEffect(() => {
     if (product) {
@@ -255,6 +255,20 @@ const Product = () => {
                 </div>
               </div>
             </div>
+
+            {recommended && (
+              <div className={styles.recommendedCont}>
+                <h1>Recommended Products</h1>
+                <div className={styles.recommendedGallery}>
+                  {recommended.map((item, ind) => {
+                    return (
+                      <ProductTile product={item} />
+                    )
+                  })}
+                </div>
+              </div>
+            )}
+            {!recommended && (<LoadingSpinner />)}
             <div className={styles.reviewsCont}>
               {reviewModal && (
                 <div className={styles.createReviewCont}>
@@ -267,7 +281,6 @@ const Product = () => {
                     <textarea rows={10} placeholder="Review Body" onChange={(e) => setReviewBody(e.target.value)} />
                   </div>
                   <div className={styles.createStars}>
-
                     <h4>Stars</h4>
                     <input type="number" min={1} max={5} onChange={(e) => setReviewStars(e.target.value)}></input>
                   </div>
@@ -318,19 +331,6 @@ const Product = () => {
               )}
 
             </div>
-            {recommended && (
-              <div className={styles.recommendedCont}>
-                <h1>Recommended Products</h1>
-                <div className={styles.recommendedGallery}>
-                  {recommended.map((item, ind) => {
-                    return (
-                      <ProductTile product={item} />
-                    )
-                  })}
-                </div>
-              </div>
-            )}
-            {!recommended && (<LoadingSpinner />)}
           </>
         )}
         {!product && <LoadingSpinner />}

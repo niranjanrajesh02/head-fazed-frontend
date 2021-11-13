@@ -86,7 +86,6 @@ const Navbar = () => {
         </div>
         {user && (
           <>
-
             <Link href="/account">
               <div className={styles.cartCont}>
                 <a><UserIcon /></a>
@@ -98,11 +97,10 @@ const Navbar = () => {
                 <p>{cartItems}</p>
               </div>
             </Link>
-
           </>
         )}
         {!user && (
-          <div>
+          <div className={styles.logInBtn}>
             <a href="/api/auth/login">Log In</a>
           </div>
         )}

@@ -82,6 +82,9 @@ function findUser(user) {
       //adds user to DB if this is first time sign up
       if (!response.data) {
         registerUser(user)
+      } else if (!response.data.cart) {
+        createWishlist(response.data._id);
+        createCart(response.data._id)
       }
       else {
         console.log("user already exists in db");
