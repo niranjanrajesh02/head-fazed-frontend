@@ -40,6 +40,17 @@
   width: 5rem;
 }
 
+.priceSection button {
+  align-self: flex-end;
+  width: 6rem;
+  text-align: center;
+  padding: 0.5rem;
+  border-radius: 1.3rem;
+  transition: background 0.2s;
+  transition-timing-function: ease-in;
+  background: #40e0d0;
+}
+
 .dropdownMenu h4 {
   color: #40e0d0;
 }
@@ -91,4 +102,17 @@
     transform: translateY(0);
     opacity: 1;
   }
+}
+
+.resetButton {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  background: crimson;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 10px;
+  min-width: 5rem;
+  text-align: center;
+  transition: background 0.2s, color 0.2s;
+  transition-timing-function: ease-in;
 }

@@ -102,13 +102,16 @@ const Collection = () => {
                 </div>
                 <div className={styles.dynamicDisplay}>
                   {filterView && (
-                    <MegaDrop use="shopFilterMob" />
+                    <MegaDrop use="shopFilterMob" setMinPriceFilter={setMinPriceFilter}
+                      setMaxPriceFilter={setMaxPriceFilter}
+                      setStarFilter={setStarFilter}
+                      resetFilters={resetFilters} />
                   )}
                   {sortView && (
-                    <Dropdown menuName="mobSort" />
+                    <Dropdown menuName="mobSort" setSortOption={setSortOption} />
                   )}
                 </div>
-                <Gallery />
+                <Gallery products={products} />
               </div>
             )}
           </>

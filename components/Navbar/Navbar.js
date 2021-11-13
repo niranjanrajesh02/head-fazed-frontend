@@ -3,7 +3,7 @@ import styles from "./Navbar.module.css"
 import Image from "next/image"
 import Dropdown from './Dropdown';
 import { useMediaQuery } from 'react-responsive';
-import { BackArrow, Cart, CartSmall, Cross, Menu, RightArrow, User, UserIcon } from '@components/icons';
+import { BackArrow, CartSmall, Cross, Menu, RightArrow, UserIcon } from '@components/icons';
 import { useUser } from '@auth0/nextjs-auth0';
 import Link from 'next/link';
 import { UserContext } from 'HOC/UserContext';
@@ -130,14 +130,27 @@ const Navbar = () => {
             <div onClick={() => setTertiaryDisplay('accesories')}><p>ACCESORIES</p></div>
           </div>
           <div className={styles.bottomMenuMob}>
-            <div className={styles.bottomMenuItemMob}>
-              <User />
-              <p>Your Account</p>
-            </div>
-            <div className={styles.bottomMenuItemMob}>
-              <Cart />
-              <p>Your Cart</p>
-            </div>
+            {user && (
+              <>
+                <Link href="/account">
+                  <div className={styles.bottomMenuItemMob}>
+                    <UserIcon />
+                    <p>Your Account</p>
+                  </div>
+                </Link>
+                <Link href="/cart">
+                  <div className={styles.bottomMenuItemMob}>
+                    <CartSmall />
+                    <p>Your Cart</p>
+                  </div>
+                </Link>
+              </>
+            )}
+            {!user && (
+              <div className={styles.logInBtn}>
+                <a href="/api/auth/login">Log In</a>
+              </div>
+            )}
           </div>
         </div>
       )}
@@ -193,15 +206,10 @@ const Navbar = () => {
               </div>
             </div>
           )}
-
         </div>
       )}
-
-
     </>
-
   )
-
 
   return (
     <>

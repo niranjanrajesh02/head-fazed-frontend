@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styles from './Dropdown.module.css'
 import Link from 'next/link'
 
-const Dropdown = ({ menuName }) => {
+const Dropdown = ({ menuName, setSortOption }) => {
   const [click, setClick] = useState(false);
   const brandNames = [
     { title: "Audio-Technica", link: "/shop/Audio-Technica" },
@@ -30,12 +30,12 @@ const Dropdown = ({ menuName }) => {
     { title: "Speakers", link: "/shop/Speakers" },
   ]
   const sortNames = [
-    { title: "Featured", link: "/shop/" },
-    { title: "User Ratings", link: "/shop/" },
-    { title: "Price: Ascending", link: "/shop/" },
-    { title: "Price: Descending", link: "/shop/" },
-    { title: "Alphabetical: Ascending", link: "/shop/" },
-    { title: "Alphabetical: Descending", link: "/shop/" },
+    { title: "Featured", value: null },
+    { title: "User Ratings", value: "avg_rating: -1" },
+    { title: "Price: Ascending", value: "price:1" },
+    { title: "Price: Descending", value: "price:-1" },
+    { title: "Alphabetical: Ascending", value: "name:1" },
+    { title: "Alphabetical: Descending", value: "name:-1" },
   ]
 
   return (
@@ -78,7 +78,7 @@ const Dropdown = ({ menuName }) => {
         })}
         {menuName === "mobSort" && sortNames.map((item, index) => {
           return (
-            <div className={styles.dropdownItem} key={index}>
+            <div className={styles.dropdownItem} key={index} onClick={() => setSortOption(item.value)}>
               <p>{item.title}</p>
             </div>
           )
