@@ -34,10 +34,9 @@ const Collection = () => {
           'Content-Type': 'application/json'
         },
       };
-      console.log(config);
       axios(config)
         .then(function (response) {
-          console.log((response.data));
+          // console.log((response.data));
           setProducts(response.data)
         })
         .catch(function (error) {

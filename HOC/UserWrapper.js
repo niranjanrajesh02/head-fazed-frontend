@@ -20,7 +20,7 @@ function UserWrapper({ children }) {
 
         axios(config)
           .then(function (response) {
-            console.log((response.data));
+            // console.log((response.data));
             setUserDB({
               name: response.data.username,
               email: response.data.email,

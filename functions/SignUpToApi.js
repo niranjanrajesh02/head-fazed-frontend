@@ -16,7 +16,7 @@ function createWishlist(u_id) {
 
   axios(config)
     .then(function (response) {
-      console.log((response.data));
+      // console.log((response.data));
     })
     .catch(function (error) {
       console.log(error);
@@ -39,7 +39,7 @@ function createCart(u_id) {
 
   axios(config)
     .then(function (response) {
-      console.log((response.data));
+      // console.log((response.data));
     })
     .catch(function (error) {
       console.log(error);
@@ -71,14 +71,13 @@ function registerUser(user) {
 }
 
 function findUser(user) {
-  console.log(user);
   let config = {
     method: 'get',
     url: `/users/${user.email}`,
   };
   axios(config)
     .then(function (response) {
-      console.log(response.data);
+      // console.log(response.data);
       //adds user to DB if this is first time sign up
       if (!response.data) {
         registerUser(user)

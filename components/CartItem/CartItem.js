@@ -25,7 +25,7 @@ const CartItem = ({ product, updateHandler, serial, user_id, setCart }) => {
 
     axios(config)
       .then(function (response) {
-        console.log((response.data));
+        // console.log((response.data));
         setCart(response.data)
       })
       .catch(function (error) {

@@ -21,7 +21,7 @@ const Orders = () => {
 
       axios(config)
         .then(function (response) {
-          console.log((response.data));
+          // console.log((response.data));
           setOrders(response.data)
         })
         .catch(function (error) {
@@ -48,7 +48,7 @@ const Orders = () => {
             {orders.map((item, ind) => {
               let numberOfProducts = item.products.length
               return (
-                <div className={styles.orderCont}>
+                <div className={styles.orderCont} key={ind}>
                   <div className={styles.imgCont}>
                     <Image src={item.products[0].image} width={50} height={50} layout="responsive" />
                   </div>

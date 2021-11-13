@@ -156,7 +156,7 @@ const Searchbar = () => {
 
     axios(config)
       .then(function (response) {
-        console.log((response.data));
+        // console.log((response.data));
         setProducts(response.data)
         setSlicedProducts(response.data.slice(0, 3))
       })
