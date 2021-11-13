@@ -75,15 +75,35 @@ const Product = () => {
         .then(function (response) {
           console.log((response.data));
           setProduct(response.data)
+
+
         })
         .catch(function (error) {
           console.log(error);
         });
     }
 
-    // setProduct(testProduct)
-    // setRecommended(recommendedProducts)
+
   }, [pid])
+
+  useEffect(() => {
+    if (product) {
+      let config2 = {
+        method: 'get',
+        url: `/products/recommended/${product._id}`,
+        headers: {}
+      };
+
+      axios(config2)
+        .then(function (response) {
+          console.log((response.data));
+          setRecommended(response.data)
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
+  }, [product])
 
   const images = [];
   product?.images.forEach((item) => images.push({ original: item }))
@@ -241,16 +261,19 @@ const Product = () => {
               )}
 
             </div>
-            <div className={styles.recommendedCont}>
-              <h1>Recommended Products</h1>
-              <div className={styles.recommendedGallery}>
-                {recommendedProducts.map((item, ind) => {
-                  return (
-                    <ProductTile product={item} />
-                  )
-                })}
+            {recommended && (
+              <div className={styles.recommendedCont}>
+                <h1>Recommended Products</h1>
+                <div className={styles.recommendedGallery}>
+                  {recommended.map((item, ind) => {
+                    return (
+                      <ProductTile product={item} />
+                    )
+                  })}
+                </div>
               </div>
-            </div>
+            )}
+            {!recommended && (<LoadingSpinner />)}
           </>
         )}
         {!product && <LoadingSpinner />}

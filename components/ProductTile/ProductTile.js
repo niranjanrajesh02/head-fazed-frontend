@@ -9,7 +9,6 @@ import Link from 'next/link'
 
 
 const ProductTile = ({ product, ind }) => {
-  console.log(product);
   const fullStarNo = (product?.avg_rating) ? Math.round((product.avg_rating)) : 0
   const emptyStarNo = 5 - fullStarNo
   const router = useRouter()
