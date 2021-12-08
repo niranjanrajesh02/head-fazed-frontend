@@ -63,7 +63,7 @@ const Product = () => {
   const router = useRouter()
   const { pid } = router.query
   useEffect(() => {
-    if (pid && userDB) {
+    if (pid) {
       let config = {
         method: 'get',
         url: `/products/find/${pid}`,
@@ -222,7 +222,7 @@ const Product = () => {
     <>
       <Navbar />
       <div className={styles.pageCont}>
-        {(product && userDB) && (
+        {(product) && (
           <>
             <div className={styles.mainDisplay}>
               <div className={styles.imgGallery}>
@@ -247,8 +247,8 @@ const Product = () => {
                   <h2>₹{product.price}</h2>
                   {!cartUpdated && <button className={styles.cartBtn} onClick={addToCart}>Add to Cart</button>}
                   {cartUpdated && <a className={styles.cartAnchor} href="/cart">Go to Cart</a>}
-                  {product.wishlisted.includes(userDB.user_id) && <button className={styles.removeBtn} onClick={removeFromWishlist}>Remove from Wishlist</button>}
-                  {!product.wishlisted.includes(userDB.user_id) && <button className={styles.wishlistBtn} onClick={addToWishlist}>Add to Wishlist</button>}
+                  {product.wishlisted.includes(userDB?.user_id) && <button className={styles.removeBtn} onClick={removeFromWishlist}>Remove from Wishlist</button>}
+                  {!product.wishlisted.includes(userDB?.user_id) && <button className={styles.wishlistBtn} onClick={addToWishlist}>Add to Wishlist</button>}
                 </div>
                 <div className={styles.descCont}>
                   <p>{product.long_description}</p>
